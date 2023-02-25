@@ -145,6 +145,7 @@ h2.hover {
 }
 section {
   height: 100vh;
+  scroll-snap-align: startgit ;
 }
 .head {
   height: 55%;
