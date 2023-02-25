@@ -1,0 +1,147 @@
+    @import "bootstrap/scss/bootstrap";
+    @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Rampart+One&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300;400;600;700&display=swap');
+    @import "./stylestars.scss";
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    @mixin links-mixin ($color) {
+        text-decoration: none;
+        background: linear-gradient(90deg, rgba(204, 233, 208, 1) 27%, rgba(153, 237, 195, 1) 46%, rgba(204, 233, 219, 1) 69%);
+        background-size: 200% 200%;
+        animation: rainbow 2s ease-in-out infinite;
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: $color;
+        font-weight: 500;
+    }
+    
+    ul {
+        list-style-type: none;
+        display: flex;
+        margin: 0;
+    }
+    
+    body {
+        &.true {
+            background: #0F2027;
+            /* fallback for old browsers */
+            background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);
+            /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to right, #2C5364, #203A43, #0F2027);
+            /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+            color: white;
+            #button-7 {
+                color: white;
+            }
+            li {
+                a {
+                    @include links-mixin(rgba(255,
+                    255,
+                    255,
+                    1));
+                    &:hover {
+                        color: rgba(0, 0, 0, 0);
+                    }
+                }
+            }
+        }
+        &.false {
+            background-color: white;
+            color: black;
+            #button-7 {
+                color: black;
+            }
+            li {
+                a {
+                    @include links-mixin(rgba(0,
+                    0,
+                    0,
+                    1));
+                    &:hover {
+                        color: rgba(0, 0, 0, 0);
+                    }
+                }
+            }
+        }
+        font-family: 'Chakra Petch',
+        sans-serif;
+    }
+    
+    @keyframes rainbow {
+        0% {
+            background-position: left
+        }
+        50% {
+            background-position: right
+        }
+        100% {
+            background-position: left
+        }
+    }
+    
+    a {
+        @include links-mixin(rgba(255,
+        255,
+        255));
+    }
+    
+    #button-7 {
+        position: relative;
+        overflow: hidden;
+        cursor: pointer;
+    }
+    
+    #button-7 a {
+        position: relative;
+        left: 0;
+        transition: all .35s ease-Out;
+        font-weight: 800;
+    }
+    
+    #dub-arrow {
+        width: 104%;
+        height: 100%;
+        background: #99edc3;
+        left: -243px;
+        position: absolute;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.35s ease-Out;
+        bottom: 0;
+        z-index: 100;
+    }
+    
+    #button-7 img {
+        width: 20px;
+        height: auto;
+    }
+    
+    #button-7:hover #dub-arrow {
+        left: 0;
+    }
+    
+    #button-7:hover a {
+        left: 150px;
+    }
+    
+    .button {
+        display: inline-flex;
+        height: 40px;
+        width: 236px;
+        border: 2px solid #99edc3;
+        margin: 20px 20px 20px 20px;
+        text-transform: uppercase;
+        text-decoration: none;
+        font-size: .8em;
+        letter-spacing: 1.5px;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+    }
