@@ -6,6 +6,14 @@
   #starss 
   #starss2
   #starss3
+  .cursor
+   .cursor__ball.cursor__ball--big
+     svg(height='30' width='30')
+       circle(cx='15' cy='15' r='12' stroke-width='0' )
+   .cursor__ball.cursor__ball--small
+     svg(height='10' width='10' color="red")
+       circle(cx='5' cy='5' r='4' stroke-width='0')
+
   .container
       
       .main 
@@ -13,53 +21,59 @@
 </template>
 
 <script setup>
-if (process.browser) {
-  var pageHeight = window.innerHeight;
-  var isAnimating = false;
-  document.body.style.transform = "translate3d(0px,0px,0px)";
+import TweenMax from "gsap";
+if (process.client) {
+  const $hoverables = document.querySelectorAll(".hoverable");
 
-  document.addEventListener("scroll", function (e) {
-    document.body.scrollTop = 0;
-  });
-  document.addEventListener("wheel", wheelListener);
-
-  function wheelListener(e) {
-    if (e.deltaY > 0) {
-      scrollPage(-pageHeight);
-    } else {
-      scrollPage(+pageHeight);
-    }
+  // Listeners
+  document.body.addEventListener("mousemove", onMouseMove);
+  for (let i = 0; i < $hoverables.length; i++) {
+    $hoverables[i].addEventListener("mouseenter", onMouseHover);
+    $hoverables[i].addEventListener("mouseleave", onMouseHoverOut);
   }
 
-  function scrollPage(scrollSize) {
-    if (isAnimating) {
-      return;
-    }
-    isAnimating = true;
-    var yPos = getNewYPos(scrollSize);
-    document.body.style.transform = "translate3d(0px," + yPos + ",0px)";
+  // Move the cursor
+  function onMouseMove(e) {
+    TweenMax.to(".cursor__ball--big", 0.4, {
+      left: e.pageX - 15,
+      top: e.pageY - 15,
+    });
+    TweenMax.to(".cursor__ball--small", 0.1, {
+      left: e.pageX - 5,
+      top: e.pageY - 7,
+    });
   }
 
-  function getNewYPos(add) {
-    var oldYPos = document.body.style.transform.split(",")[1];
-    oldYPos = parseInt(oldYPos.replace(/px/, ""));
-    var newYPos = oldYPos + add;
-    if (newYPos > 0) {
-      isAnimating = false;
-    }
-    return Math.min(0, newYPos) + "px";
+  // Hover an element
+  function onMouseHover() {
+    TweenMax.to(".cursor__ball--big", 0.3, {
+      scale: 4,
+    });
   }
-
-  document.body.addEventListener("transitionend", function () {
-    setTimeout(function () {
-      isAnimating = false;
-    }, 500);
-    document.addEventListener("wheel", wheelListener);
-  });
+  function onMouseHoverOut() {
+    TweenMax.to(".cursor__ball--big", 0.3, {
+      scale: 1,
+    });
+  }
 }
 </script>
 
 <style lang="scss" scoped>
+.cursor {
+  pointer-events: none;
+
+  &__ball {
+    position: absolute;
+    top: 0;
+    left: 0;
+    mix-blend-mode: difference;
+    z-index: 1000;
+    &svg {
+      position: fixed;
+    }
+  }
+}
+
 .dark {
   border-radius: 50%;
   padding: 0.5rem;

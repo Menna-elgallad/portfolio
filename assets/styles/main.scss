@@ -27,6 +27,7 @@
     }
     
     body {
+        cursor: none;
         &.true {
             background: #0F2027;
             /* fallback for old browsers */
@@ -35,8 +36,14 @@
             background: linear-gradient(to right, #2C5364, #203A43, #0F2027);
             /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
             color: white;
+            &::-webkit-scrollbar-track {
+                background: #0f2128;
+            }
             #button-7 {
                 color: white;
+            }
+            circle {
+                fill: #ffff;
             }
             li {
                 a {
@@ -55,6 +62,9 @@
             color: black;
             #button-7 {
                 color: black;
+            }
+            circle {
+                fill: rgb(129, 201, 170);
             }
             li {
                 a {
@@ -85,9 +95,9 @@
     }
     
     a {
-        @include links-mixin(rgba(255,
-        255,
-        255));
+        @include links-mixin(rgba(0,
+        0,
+        0));
     }
     
     #button-7 {
@@ -151,3 +161,18 @@
         overflow-y: scroll;
         scroll-snap-type: y mandatory;
     }
+    
+     ::-webkit-scrollbar {
+        width: 0.5vw;
+        /* THIS WILL RESET THE DEFAULT SCORLLBAR STYLING */
+    }
+    /* TO STYLE THE SCROLLBAR TRACK */
+    /* TO STYLE THE SCROLLBAR THUMB */
+    
+     ::-webkit-scrollbar-thumb {
+        background-color: #99edc3;
+        border: 0.1vw solid #ffffff00;
+        border-radius: 5vw;
+    }
+    
+    $sec-color: #9b9b9b

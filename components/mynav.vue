@@ -7,18 +7,18 @@
         .links
             nav
                 ul
-                    li.ms-5: NuxtLink(to="#") 
-                        a(style="display:block") 001 
+                    li.ms-5: NuxtLink(to="#" class="hoverable") 
+                        a(style="display:block"): span(style="font-size:smaller ; color:#9b9b9b") 001 
                         span &lt;Skills/&gt;
                     
-                    li.ms-5: NuxtLink(to="#") 
-                        a(style="display:block") 010 
+                    li.ms-5: NuxtLink(to="#" class="hoverable") 
+                        a(style="display:block"): span(style="font-size:smaller ; color:#9b9b9b") 010 
                         span &lt;Experience/&gt;
-                    li.ms-5: NuxtLink(to="#")
-                        a(style="display:block") 011 
+                    li.ms-5: NuxtLink(to="#" class="hoverable")
+                        a(style="display:block"): span(style="font-size:smaller ; color:#9b9b9b") 011 
                         span &lt;Projects/&gt;
-                    li.ms-5: NuxtLink(to="#") 
-                        a(style="display:block") 100
+                    li.ms-5: NuxtLink(to="#" class="hoverable") 
+                        a(style="display:block" ): span(style="font-size:smaller ; color:#9b9b9b") 100
                         span &lt;Contact/&gt;
         .dark 
             Icon(name="bi:sun-fill" @click="toggle(!isdark)" v-if="isdark" ).darklogo
