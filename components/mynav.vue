@@ -7,7 +7,7 @@
         .links
             nav
                 ul
-                    li.ms-5: NuxtLink(to="#" class="hoverable") 
+                    li.ms-5: NuxtLink(to="#skills" class="hoverable") 
                         a(style="display:block"): span(style="font-size:smaller ; color:#9b9b9b") 001 
                         span &lt;Skills/&gt;
                     

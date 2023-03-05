@@ -1,5 +1,10 @@
 <template lang="pug">
 .wrapper 
+  .brands 
+    a(href="https://www.facebook.com/profile.php?id=100007285412802" type="facebook" ).myicon: Icon(name="fa-brands:facebook-f" class="icon")
+    a(href="https://twitter.com/Mennaa_elgallad"  type="twitter").myicon: Icon(name="fa-brands:twitter" class="icon")
+    a(href="https://www.linkedin.com/in/menna-elgallad-a480b41b6/" type="linkedin").myicon: Icon(name="fa-brands:linkedin-in" class="icon")
+    a(href="https://github.com/Menna-elgallad" type="github").myicon: Icon(name="fa-brands:github" class="icon")
   #stars 
   #stars2
   #stars3
@@ -13,17 +18,27 @@
    .cursor__ball.cursor__ball--small
      svg(height='10' width='10' color="red")
        circle(cx='5' cy='5' r='4' stroke-width='0')
-
   .container
-      
       .main 
           slot 
 </template>
 
 <script setup>
 import TweenMax from "gsap";
+import gsap from "gsap";
 if (process.client) {
   const $hoverables = document.querySelectorAll(".hoverable");
+
+  gsap.to(".myicon", {
+    keyframes: {
+      "50%": { y: "-=15" },
+      "100%": { y: "+=15", delay: 0.1 },
+    },
+    duration: 2,
+
+    repeat: -1,
+  });
+  //move down right
 
   // Listeners
   document.body.addEventListener("mousemove", onMouseMove);
@@ -59,6 +74,44 @@ if (process.client) {
 </script>
 
 <style lang="scss" scoped>
+.wrapper {
+  position: relative;
+  .brands {
+    position: fixed;
+    left: 8%;
+    top: 30%;
+    a {
+      all: unset;
+    }
+    .myicon {
+      width: 40px;
+      height: 40px;
+      box-shadow: 0 0 8px 2px #ccc;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 1rem;
+      transition: all 0.5s ease;
+      &:hover {
+        background-color: white;
+      }
+      &[type="facebook"]:hover {
+        color: #1877f2;
+      }
+      &[type="twitter"]:hover {
+        color: #1da1f2;
+      }
+      &[type="linkedin"]:hover {
+        color: #0a66c2;
+      }
+      &[type="github"]:hover {
+        color: rgb(124 0 124);
+      }
+    }
+  }
+}
+
 .cursor {
   pointer-events: none;
 

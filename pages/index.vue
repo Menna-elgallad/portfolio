@@ -4,39 +4,44 @@ div.container
       Mynav
       .head 
         div.d-flex
-          h2( @mouseover="hovereffect(index)" @mouseleave="hovering=false" :class="{hover : hovering && index===hoverElement } " class="hoverable letters" :key="index" v-for="(letter , index) in welcoming.split('')" style="font-family: 'Rampart One', cursive;")  {{letter !==" "  ? letter :'&nbsp '}} 
+          h2( @mouseover="hovereffect(index)" @mouseleave="hovering=false" :class="{hover : hovering && index===hoverElement } " class="hoverable letters fontshape" :key="index" v-for="(letter , index) in welcoming.split('')" )  {{letter !==" "  ? letter :'&nbsp '}} 
 
         div.d-flex
 
-          h2( @mouseover="hovereffect2(index)" @mouseleave="hovering2=false" :class="{hover : hovering2 && index===hoverElement}" class="hoverable letters" :key="index" v-for="(letter , index) in welcoming1.split('')") {{letter !==" "  ? letter :'&nbsp '}}
+          p( @mouseover="hovereffect2(index)" @mouseleave="hovering2=false" :class="{hover : hovering2 && index===hoverElement}" class="hoverable letters" :key="index" v-for="(letter , index) in welcoming1.split('')") {{letter !==" "  ? letter :'&nbsp '}}
           .chat Hover on me !!
-        NuxtLink(href="#section2")
+        NuxtLink(href="#skills")
           div(class="button" id="button-7")
             div(id="dub-arrow"): img(src="https://github.com/atloomer/atloomer.github.io/blob/master/img/iconmonstr-arrow-48-240.png?raw=true" alt="") 
             span Explore my Portofolio
-  section#section2
-    .head
-        div.d-flex
-          h2( @mouseover="hovereffect(index)" @mouseleave="hovering=false" :class="{hover : hovering && index===hoverElement}" :key="index" v-for="(letter , index) in welcoming.split('')" style="font-family: 'Rampart One', cursive;")  {{letter !==" "  ? letter :'&nbsp '}} 
-
-        div.d-flex
-
-          h2( @mouseover="hovereffect2(index)" @mouseleave="hovering2=false" :class="{hover : hovering2 && index===hoverElement}" :key="index" v-for="(letter , index) in welcoming1.split('')") {{letter !==" "  ? letter :'&nbsp '}}
-        .chat Hover on me !!    
-  section(id="section3")
-    .head
-        div.d-flex
-          h2( @mouseover="hovereffect(index)" @mouseleave="hovering=false" :class="{hover : hovering && index===hoverElement}" :key="index" v-for="(letter , index) in welcoming.split('')" style="font-family: 'Rampart One', cursive;")  {{letter !==" "  ? letter :'&nbsp '}} 
-
-        div.d-flex
-
-          h2( @mouseover="hovereffect2(index)" @mouseleave="hovering2=false" :class="{hover : hovering2 && index===hoverElement}" :key="index" v-for="(letter , index) in welcoming1.split('')") {{letter !==" "  ? letter :'&nbsp '}}
-        .chat Hover on me !!    
+  section#skills
+      skills   
+ 
 </template>
 
 <script setup>
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
 if (process.client) {
+  gsap.from("#skills", {
+    autoAlpha: 0,
+    duration: 1.5,
+    delay: 0.2,
+    scrollTrigger: {
+      trigger: "#skills",
+      toggleActions: "restart reset restart reset ",
+    },
+  });
+  gsap.from("#section1", {
+    autoAlpha: 0,
+    duration: 1,
+    scrollTrigger: {
+      trigger: "#section1",
+      toggleActions: "restart reset restart reset ",
+    },
+  });
+
   gsap.from(".letters", {
     autoAlpha: 0,
     duration: 1,
@@ -44,6 +49,9 @@ if (process.client) {
     ease: "bounce.out",
     stagger: {
       each: 0.04,
+    },
+    scrollTrigger: {
+      trigger: ".letters",
     },
   });
 }
@@ -66,92 +74,30 @@ function hovereffect2(index) {
 </script>
 
 <style scoped lang="scss">
-@keyframes ani {
-  0% {
-    transform: scale(1.2, 0.5);
-  }
-  16% {
-    transform: scale(1.2, 0.5);
-  }
-  25% {
-    transform: scale(1.2, 0.5);
-  }
-  32% {
-    transform: scale(0.8, 1.1);
-  }
-  48% {
-    transform: scale(0.95, 1);
-  }
-  64% {
-    transform: scale(0.8, 1.2);
-  }
-  80% {
-    transform: scale(1.15, 1);
-  }
-  87% {
-    transform: scale(1.15, 1);
-  }
-  90% {
-    /* This will add the shaking effect one time almost at the end   */
-    transform: scale(0.8, 1);
-  }
-  95% {
-    transform: scale(1.05, 1);
-  }
-  100% {
-    transform: scale(1, 1);
-  }
-}
-// @keyframes ani2 {
-//   0% {
-//     transform: scale(1.2, 0.5);
-//   }
-//   16% {
-//     transform: scale(1.2, 0.5);
-//   }
-//   25% {
-//     transform: scale(1.2, 0.5);
-//   }
-//   32% {
-//     transform: scale(0.8, 1.1);
-//   }
-//   48% {
-//     transform: scale(0.95, 1);
-//   }
-//   64% {
-//     transform: scale(0.8, 1.2);
-//   }
-//   80% {
-//     transform: scale(1.15, 1);
-//   }
-//   87% {
-//     transform: scale(1.15, 1);
-//   }
-//   90% {
-//     /* This will add the shaking effect one time almost at the end   */
-//     transform: scale(0.8, 1);
-//   }
-//   95% {
-//     transform: scale(1.05, 1);
-//   }
-//   100% {
-//     transform: scale(1, 1);
-//   }
-// }
-
 h2 {
-  letter-spacing: 0.3rem;
+  letter-spacing: 0.5rem;
   font-weight: 800;
-  font-size: 50px;
 }
 h2.hover {
   color: #99edc3;
   animation: ani 0.8s ease-in-out infinite;
   // transform: scale(1.5, 1.8);
 }
+p {
+  letter-spacing: 0.3rem;
+  color: #d1d1d1;
+  font-weight: 300;
+}
+p.hover {
+  color: #99edc3;
+  animation: ani 0.8s ease-in-out infinite;
+  // transform: scale(1.5, 1.8);
+}
 section {
-  height: 100vh;
+  min-height: 100vh;
   scroll-snap-align: start;
+  visibility: hidden;
+  padding: 2rem 0;
 }
 .head {
   height: 55%;
@@ -160,18 +106,19 @@ section {
   align-items: center;
   justify-content: center;
   position: relative;
+  transform: translate(0, 50%);
   .chat {
     position: absolute;
-    top: 83px;
+    top: -23%;
     background-color: #99edc3;
     color: black;
     border-radius: 8px;
-    right: 350px;
+    right: 50%;
     padding: 0.5rem;
-    font-weight: 800;
+    font-weight: 500;
     &::after {
       content: "";
-      top: 40px;
+      top: 38px;
       left: 16px;
       border: 15px solid transparent;
       border-top: 0;
