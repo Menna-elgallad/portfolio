@@ -3,6 +3,7 @@
     @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300;400;600;700&display=swap');
     @import "./stylestars.scss";
     @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap');
+    @import "./override";
     * {
         margin: 0;
         padding: 0;
@@ -27,7 +28,7 @@
     }
     
     body {
-        min-height: 100vh;
+        // min-height: 100vh;
         cursor: none;
         &.true {
             background: #0F2027;
@@ -158,9 +159,9 @@
     }
     
     html {
-        min-height: 100vh;
-        overflow-y: scroll;
-        scroll-snap-type: y mandatory;
+        // min-height: 100vh;
+        // overflow-y: scroll;
+        // scroll-snap-type: y mandatory;
         overflow-x: hidden;
     }
     

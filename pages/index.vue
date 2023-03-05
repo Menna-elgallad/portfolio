@@ -16,6 +16,8 @@ div.container
             span Explore my Portofolio
   section#skills
       skills   
+  section#projects
+      projects       
  
 </template>
 
@@ -38,6 +40,15 @@ if (process.client) {
     duration: 1,
     scrollTrigger: {
       trigger: "#section1",
+      toggleActions: "restart reset restart reset ",
+    },
+  });
+  gsap.from("#projects", {
+    autoAlpha: 0,
+    duration: 1.5,
+    delay: 0.2,
+    scrollTrigger: {
+      trigger: "#projects",
       toggleActions: "restart reset restart reset ",
     },
   });
@@ -95,7 +106,7 @@ p.hover {
 }
 section {
   min-height: 100vh;
-  scroll-snap-align: start;
+  // scroll-snap-align: start;
   visibility: hidden;
   padding: 2rem 0;
 }
@@ -106,7 +117,7 @@ section {
   align-items: center;
   justify-content: center;
   position: relative;
-  transform: translate(0, 50%);
+  transform: translate(0, 100%);
   .chat {
     position: absolute;
     top: -23%;

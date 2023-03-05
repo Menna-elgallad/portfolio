@@ -1,0 +1,24 @@
+            .swiper-button-next:after,
+            .swiper-button-prev:after {
+                font-family: swiper-icons;
+                font-size: var(--swiper-navigation-size);
+                text-transform: none!important;
+                /* letter-spacing: 0; */
+                font-variant: initial;
+                line-height: 1;
+                color: #707070;
+                font-size: medium !important;
+                background-color: white;
+                border-radius: 50%;
+                box-shadow: 0 0 8px 2px #ccc;
+                padding: 0.7rem 1rem;
+            }
+            
+            .swiper-horizontal>.swiper-scrollbar,
+            .swiper-scrollbar.swiper-scrollbar-horizontal {
+                visibility: hidden;
+            }
+            
+            .swiper {
+                height: 70vh;
+            }

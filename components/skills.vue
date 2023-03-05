@@ -148,7 +148,7 @@ function hovereffect2(index) {
 h2 {
   letter-spacing: 0.3rem;
   font-weight: 800;
-  font-size: 50px;
+  
 }
 
 h2.hover {

@@ -76,6 +76,8 @@ if (process.client) {
 <style lang="scss" scoped>
 .wrapper {
   position: relative;
+
+  overflow: hidden;
   .brands {
     position: fixed;
     left: 8%;

@@ -1,5 +1,5 @@
 <template lang="pug">
-.d-flex.justify-content-between.align-items-center.py-5
+.d-flex.justify-content-between.align-items-center
         //- .logo
         //-     img(src="../assets/images/logoD.png" v-if="isdark")
         //-     img(src="../assets/images/logoL.png" v-if="!isdark")
