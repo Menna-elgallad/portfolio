@@ -16,7 +16,7 @@
       @slideChange="onSlideChange")
         swiper-slide: flipcard(srclogo="/_nuxt/assets/images/humm.svg" , linklive="https://humm-cloned-site-production.up.railway.app/" srcsite="/_nuxt/assets/images/p1png.png" linkcode="https://github.com/Menna-elgallad/humm-cloned-site-")
         swiper-slide: flipcard(srclogo="/_nuxt/assets/images/tygo.svg" , linklive="https://menna-elgallad.github.io/Tygoapp/" srcsite="/_nuxt/assets/images/tygosite.png" linkcode="https://github.com/Menna-elgallad/Tygoapp")
-        swiper-slide: flipcard(srclogo="/_nuxt/assets/images/landing.svg" , linklive="https://menna-elgallad.github.io/kasper-landingpage/" srcsite="/_nuxt/assets/images/kasper.png" linkcode="https://github.com/Menna-elgallad/kasper-landingpage")
+        swiper-slide: flipcard(srclogo="/_nuxt/assets/images/landing2.svg" , linklive="https://menna-elgallad.github.io/kasper-landingpage/" srcsite="/_nuxt/assets/images/kasper.png" linkcode="https://github.com/Menna-elgallad/kasper-landingpage")
         swiper-slide: flipcard(srclogo="/_nuxt/assets/images/cart.svg" , linklive="https://menna-elgallad.github.io/cart-system/" srcsite="/_nuxt/assets/images/cart.png" linkcode="https://github.com/Menna-elgallad/cart-system")
         swiper-slide: flipcard(srclogo="/_nuxt/assets/images/landing.svg" , linklive="https://menna-elgallad.github.io/landing-page/" srcsite="/_nuxt/assets/images/land2.png" linkcode="https://github.com/Menna-elgallad/landing-page")
         

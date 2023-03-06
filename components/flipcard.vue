@@ -2,10 +2,15 @@
 .flip-card
   .flip-card-inner
     .flip-card-front(:style="{  'background-image': 'url(' + srcsite + ')' }")
-      .img: img(:src="srclogo")
+      .img
+         img(:src="srclogo")
+         h3( class="fontshape mybadge") Humm cloned website 
     .flip-card-back
-        a(:href="linklive") Live demo
-        a(:href="linkcode")  github
+        .description 
+          p project description project description project description project description project description project description 
+        .links
+          a(:href="linklive") Live demo
+          a(:href="linkcode")  github
   
 </template>
 
@@ -68,7 +73,7 @@ const props = defineProps({
 
     img {
       width: 50%;
-      height: 90%;
+      height: 50%;
       object-fit: contain;
       object-position: center;
     }
@@ -81,13 +86,30 @@ const props = defineProps({
 //     height: 100%;
 //   }
 // }
+.mybadge {
+  background-color: rgb(204, 204, 204);
+  padding: 1rem;
+}
 .flip-card-back {
   transform: rotateY(180deg);
+  div {
+    width: 100%;
+  }
+  .links {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
 }
 a {
   border: 1px solid $main-color;
   text-decoration: none;
-  padding: 0 1rem;
-  width: 40%;
+  padding: 0.5rem 1rem;
+  width: 30%;
+  transition: all 0.4s ease-in-out;
+  &:hover {
+    box-shadow: 0 0 8px 2px #cccccc3a;
+    transform: scale(1.05);
+  }
 }
 </style>
