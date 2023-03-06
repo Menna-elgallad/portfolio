@@ -1,15 +1,22 @@
 <template lang="pug">
 .flip-card
   .flip-card-inner
-    .flip-card-front
-      img(src="../assets/images/p1png.png")
+    .flip-card-front(:style="{  'background-image': 'url(' + srcsite + ')' }")
+      .img: img(:src="srclogo")
     .flip-card-back
-      p.title BACK
-      p Leave Me
+        a(:href="linklive") Live demo
+        a(:href="linkcode")  github
   
 </template>
 
-<script setup></script>
+<script setup>
+const props = defineProps({
+  srclogo: String,
+  srcsite: String,
+  linklive: String,
+  linkcode: String,
+});
+</script>
 
 <style lang="scss" scoped>
 .flip-card {
@@ -52,15 +59,35 @@
   backface-visibility: hidden;
   border: 1px solid #c2c2c2;
   border-radius: 1rem;
-}
-.flip-card-front {
-  img {
-    object-fit: cover;
+  overflow: hidden;
+  background-size: cover;
+  .img {
     width: 100%;
     height: 100%;
+    backdrop-filter: blur(10px);
+
+    img {
+      width: 50%;
+      height: 90%;
+      object-fit: contain;
+      object-position: center;
+    }
   }
 }
+// .flip-card-front {
+//   img {
+//     object-fit: cover;
+//     width: 100%;
+//     height: 100%;
+//   }
+// }
 .flip-card-back {
   transform: rotateY(180deg);
+}
+a {
+  border: 1px solid $main-color;
+  text-decoration: none;
+  padding: 0 1rem;
+  width: 40%;
 }
 </style>

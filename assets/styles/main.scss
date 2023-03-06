@@ -31,11 +31,20 @@
         // min-height: 100vh;
         cursor: none;
         &.true {
+            a {
+                color: white;
+            }
             background: #0F2027;
             /* fallback for old browsers */
-            background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);
+            background: -webkit-linear-gradient(to right,
+            #2C5364,
+            #203A43,
+            #0F2027);
             /* Chrome 10-25, Safari 5.1-6 */
-            background: linear-gradient(to right, #2C5364, #203A43, #0F2027);
+            background: linear-gradient(to right,
+            #2C5364,
+            #203A43,
+            #0F2027);
             /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
             color: white;
             &::-webkit-scrollbar-track {
@@ -60,6 +69,9 @@
             }
         }
         &.false {
+            a {
+                color: black;
+            }
             background-color: white;
             color: black;
             #button-7 {
@@ -118,7 +130,7 @@
     #dub-arrow {
         width: 104%;
         height: 100%;
-        background: #99edc3;
+        background: $main-color;
         left: -243px;
         position: absolute;
         padding: 0;
@@ -147,7 +159,7 @@
         display: inline-flex;
         height: 40px;
         width: 236px;
-        border: 2px solid #99edc3;
+        border: 2px solid$main-color;
         margin: 20px 20px 20px 20px;
         text-transform: uppercase;
         text-decoration: none;
@@ -173,7 +185,7 @@
     /* TO STYLE THE SCROLLBAR THUMB */
     
      ::-webkit-scrollbar-thumb {
-        background-color: #99edc3;
+        background-color: $main-color;
         border: 0.1vw solid #ffffff00;
         border-radius: 5vw;
     }
@@ -243,7 +255,7 @@
             height: 5px;
             bottom: 0;
             border-radius: 3rem;
-            background-color: #99edc3;
+            background-color: $main-color;
             left: 0;
         }
     }
