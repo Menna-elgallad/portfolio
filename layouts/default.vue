@@ -26,6 +26,7 @@
 <script setup>
 import TweenMax from "gsap";
 import gsap from "gsap";
+
 if (process.client) {
   const $hoverables = document.querySelectorAll(".hoverable");
 

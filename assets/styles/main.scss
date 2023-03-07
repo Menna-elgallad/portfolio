@@ -12,11 +12,6 @@
     
     @mixin links-mixin ($color) {
         text-decoration: none;
-        background: linear-gradient(90deg, rgba(204, 233, 208, 1) 27%, rgba(153, 237, 195, 1) 46%, rgba(204, 233, 219, 1) 69%);
-        background-size: 200% 200%;
-        animation: rainbow 2s ease-in-out infinite;
-        background-clip: text;
-        -webkit-background-clip: text;
         color: $color;
         font-weight: 500;
     }
@@ -28,8 +23,6 @@
     }
     
     body {
-        // min-height: 100vh;
-        cursor: none;
         &.true {
             a {
                 color: white;
@@ -58,13 +51,10 @@
             }
             li {
                 a {
-                    @include links-mixin(rgba(255,
-                    255,
-                    255,
-                    1));
-                    &:hover {
-                        color: rgba(0, 0, 0, 0);
-                    }
+                    @include links-mixin(white);
+                    // &:hover {
+                    //     color: rgba(0, 0, 0, 0);
+                    // }
                 }
             }
         }
@@ -82,13 +72,10 @@
             }
             li {
                 a {
-                    @include links-mixin(rgba(0,
-                    0,
-                    0,
-                    1));
-                    &:hover {
-                        color: rgba(0, 0, 0, 0);
-                    }
+                    @include links-mixin(black);
+                    // &:hover {
+                    //     color: rgba(0, 0, 0, 0);
+                    // }
                 }
             }
         }
@@ -266,10 +253,10 @@
         display: inline-block;
     }
     
-    p {
+    p.subtitle {
         font-size: clamp(1.563rem, 2vw + 1.25rem, 2.5rem);
     }
     
-    h2 {
+    h2.heading {
         font-size: clamp(2.188rem, 2vw + 2rem, 4.375rem) !important;
     }

@@ -3,7 +3,6 @@
         //- .logo
         //-     img(src="../assets/images/logoD.png" v-if="isdark")
         //-     img(src="../assets/images/logoL.png" v-if="!isdark")
-
         .links
             nav
                 ul
@@ -11,12 +10,12 @@
                         a(style="display:block"): span(style="font-size:smaller ; color:#9b9b9b") 001 
                         span &lt;Skills/&gt;
                     
-                    li.ms-5: NuxtLink(to="#" class="hoverable") 
+                    li.ms-5: NuxtLink(to="#projects" class="hoverable") 
                         a(style="display:block"): span(style="font-size:smaller ; color:#9b9b9b") 010 
-                        span &lt;Experience/&gt;
-                    li.ms-5: NuxtLink(to="#" class="hoverable")
-                        a(style="display:block"): span(style="font-size:smaller ; color:#9b9b9b") 011 
                         span &lt;Projects/&gt;
+                    li.ms-5: NuxtLink(to="#MyExpertise" class="hoverable")
+                        a(style="display:block"): span(style="font-size:smaller ; color:#9b9b9b") 011 
+                        span &lt;Experience/&gt;
                     li.ms-5: NuxtLink(to="#" class="hoverable") 
                         a(style="display:block" ): span(style="font-size:smaller ; color:#9b9b9b") 100
                         span &lt;Contact/&gt;
@@ -35,9 +34,12 @@ function toggle(input) {
   localStorage.setItem("darkmode", input);
 }
 onBeforeMount(() => {
-  const darktheme = JSON.parse(localStorage.getItem("darkmode"));
-  console.log(darktheme);
-  toggle(darktheme);
+  if (localStorage.getItem("darkmode")) {
+    const darktheme = JSON.parse(localStorage.getItem("darkmode"));
+    toggle(darktheme);
+  } else {
+    toggle("true");
+  }
 });
 </script>
 
@@ -48,6 +50,7 @@ onBeforeMount(() => {
   transition: all 0.5s ease;
   &:hover {
     background-color: #cccccc63;
+    transform: rotate(360deg);
   }
   .darklogo {
     cursor: pointer;

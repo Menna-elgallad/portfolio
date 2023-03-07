@@ -2,29 +2,25 @@
 .container 
     .myheading: .mytitle
             .d-flex
-                h2( @mouseover="hovereffect(index)" @mouseleave="hovering=false" :class="{hover : hovering && index===hoverElement } " class="hoverable lettersTitle2 fontshape" :key="index" v-for="(letter , index) in welcoming.split('')" )  {{letter !==" "  ? letter :'&nbsp '}} 
-            p(class="subheading") Some of my solo projects  
+                h2( @mouseover="hovereffect(index)" @mouseleave="hovering=false" :class="{hover : hovering && index===hoverElement } " class="hoverable heading lettersTitle2 fontshape" :key="index" v-for="(letter , index) in welcoming.split('')" )  {{letter !==" "  ? letter :'&nbsp '}} 
+            p(class="subheading "  ) Some of my solo projects  
     .projects.mt-5
       swiper(
-        :modules="modules"
+      :modules="modules"
       :slides-per-view="1.5"
       :space-between="50"
       navigation
       :pagination="{ clickable: true }"
       :scrollbar="{ draggable: true }"
       @swiper="onSwiper"
-      @slideChange="onSlideChange")
-        swiper-slide: flipcard(srclogo="/_nuxt/assets/images/humm.svg" , linklive="https://humm-cloned-site-production.up.railway.app/" srcsite="/_nuxt/assets/images/p1png.png" linkcode="https://github.com/Menna-elgallad/humm-cloned-site-")
-        swiper-slide: flipcard(srclogo="/_nuxt/assets/images/tygo.svg" , linklive="https://menna-elgallad.github.io/Tygoapp/" srcsite="/_nuxt/assets/images/tygosite.png" linkcode="https://github.com/Menna-elgallad/Tygoapp")
-        swiper-slide: flipcard(srclogo="/_nuxt/assets/images/landing2.svg" , linklive="https://menna-elgallad.github.io/kasper-landingpage/" srcsite="/_nuxt/assets/images/kasper.png" linkcode="https://github.com/Menna-elgallad/kasper-landingpage")
-        swiper-slide: flipcard(srclogo="/_nuxt/assets/images/cart.svg" , linklive="https://menna-elgallad.github.io/cart-system/" srcsite="/_nuxt/assets/images/cart.png" linkcode="https://github.com/Menna-elgallad/cart-system")
-        swiper-slide: flipcard(srclogo="/_nuxt/assets/images/landing.svg" , linklive="https://menna-elgallad.github.io/landing-page/" srcsite="/_nuxt/assets/images/land2.png" linkcode="https://github.com/Menna-elgallad/landing-page")
+      @slideChange="onSlideChange($event)"
+      watchSlidesProgress ="true")
+        swiper-slide: flipcard(srclogo="/_nuxt/assets/images/humm.svg" , linklive="https://humm-cloned-site-production.up.railway.app/" srcsite="/_nuxt/assets/images/p1png.png" linkcode="https://github.com/Menna-elgallad/humm-cloned-site-" title="Humm clones website" description="Nuxt3 , pug , Graphql-client , Bootstrap , Typescript" :index="slideI === 0" )
+        swiper-slide: flipcard(srclogo="/_nuxt/assets/images/tygo.svg" , linklive="https://menna-elgallad.github.io/Tygoapp/" srcsite="/_nuxt/assets/images/tygosite.png" linkcode="https://github.com/Menna-elgallad/Tygoapp" title="Tygo app" description="Html , Sass , Bootstrap , vanilla jasvascript " :index="slideI === 1" )
+        swiper-slide: flipcard(srclogo="/_nuxt/assets/images/landing2.svg" , linklive="https://menna-elgallad.github.io/kasper-landingpage/" srcsite="/_nuxt/assets/images/kasper.png" linkcode="https://github.com/Menna-elgallad/kasper-landingpage" title="kasper responsive landing page" description="Html , Css ,Bootstrap" :index="slideI === 2"  )
+        swiper-slide: flipcard(srclogo="/_nuxt/assets/images/cart.svg" , linklive="https://menna-elgallad.github.io/cart-system/" srcsite="/_nuxt/assets/images/cart.png" linkcode="https://github.com/Menna-elgallad/cart-system" title ="cart system" description="Html , Css ,Typescript" :index="slideI === 3" )
+        swiper-slide: flipcard(srclogo="/_nuxt/assets/images/landing.svg" , linklive="https://menna-elgallad.github.io/landing-page/" srcsite="/_nuxt/assets/images/land2.png" linkcode="https://github.com/Menna-elgallad/landing-page" title="Responsive landing page" description="Html , Css ,Bootstrap" :index="slideI === 4"  )
         
-
-
-      
-      
-    
 </template>
 
 <script setup>
@@ -43,9 +39,12 @@ gsap.registerPlugin(ScrollTrigger, CSSRulePlugin);
 const onSwiper = (swiper) => {
   console.log(swiper);
 };
-const onSlideChange = () => {
+const slideI = ref(0);
+const onSlideChange = (e) => {
   console.log("slide change");
+  slideI.value = e.activeIndex;
 };
+
 if (process.client) {
   var titleafter = CSSRulePlugin.getRule(".mytitle:after");
   gsap.from(".lettersTitle2", {
@@ -89,7 +88,7 @@ function hovereffect2(index) {
 }
 </script>
 
-<style>
+<style scoped>
 @import "../node_modules/vue3-carousel/dist/carousel.css";
 .lettersTitle2 {
   visibility: hidden;

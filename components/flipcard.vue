@@ -1,29 +1,35 @@
 <template lang="pug">
-.flip-card
+.flip-card(:class="{indexmatch : index }")
   .flip-card-inner
     .flip-card-front(:style="{  'background-image': 'url(' + srcsite + ')' }")
-      .img
-         img(:src="srclogo")
-         h3( class="fontshape mybadge") Humm cloned website 
+
     .flip-card-back
         .description 
-          p project description project description project description project description project description project description 
+          h3 {{ title }}
+          h2(class="tech") Technologies 
+          p {{  description}}
         .links
-          a(:href="linklive") Live demo
-          a(:href="linkcode")  github
+          a(:href="linklive" target="_blank") Live demo
+          a(:href="linkcode" target="_blank")  github
   
 </template>
 
 <script setup>
 const props = defineProps({
-  srclogo: String,
+  description: String,
   srcsite: String,
   linklive: String,
   linkcode: String,
+  title: String,
+  index: Boolean,
 });
+console.log("active", props.index);
 </script>
 
 <style lang="scss" scoped>
+.tech {
+  color: $main-color;
+}
 .flip-card {
   background-color: transparent;
   width: 100%;
@@ -47,7 +53,7 @@ const props = defineProps({
   transform-style: preserve-3d;
 }
 
-.flip-card:hover .flip-card-inner {
+.indexmatch:hover .flip-card-inner {
   transform: rotateY(180deg);
 }
 
@@ -66,6 +72,7 @@ const props = defineProps({
   border-radius: 1rem;
   overflow: hidden;
   background-size: cover;
+  background-position: top center;
   .img {
     width: 100%;
     height: 100%;
@@ -76,6 +83,9 @@ const props = defineProps({
       height: 50%;
       object-fit: contain;
       object-position: center;
+      position: absolute;
+      bottom: 19%;
+      right: 26%;
     }
   }
 }
@@ -86,12 +96,18 @@ const props = defineProps({
 //     height: 100%;
 //   }
 // }
-.mybadge {
-  background-color: rgb(204, 204, 204);
+.project_title {
+  background-color: rgba(240, 240, 240, 0.699);
+  box-shadow: 0 0 8px 2px #cccc;
   padding: 1rem;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  font-weight: 700;
 }
 .flip-card-back {
   transform: rotateY(180deg);
+  background-color: rgba(240, 240, 240, 0.123);
   div {
     width: 100%;
   }
@@ -101,14 +117,19 @@ const props = defineProps({
     gap: 10px;
   }
 }
+// .description {
+//   width: 60%;
+//   margin: auto;
+// }
 a {
   border: 1px solid $main-color;
   text-decoration: none;
   padding: 0.5rem 1rem;
   width: 30%;
-  transition: all 0.4s ease-in-out;
+  transition: all 0.5s ease-in-out;
   &:hover {
-    box-shadow: 0 0 8px 2px #cccccc3a;
+    background-color: #c2c2c22a !important;
+
     transform: scale(1.05);
   }
 }

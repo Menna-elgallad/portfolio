@@ -22,3 +22,8 @@
             .swiper {
                 height: 70vh;
             }
+            
+            .swiper-pagination-bullet-active {
+                opacity: var(--swiper-pagination-bullet-opacity, 1);
+                background: $main-color !important;
+            }

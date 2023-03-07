@@ -2,8 +2,8 @@
 .container 
     .myheading: .mytitle
           .d-flex
-              h2( @mouseover="hovereffect(index)" @mouseleave="hovering=false" :class="{hover : hovering && index===hoverElement } " class="hoverable lettersTitle fontshape" :key="index" v-for="(letter , index) in welcoming.split('')" )  {{letter !==" "  ? letter :'&nbsp '}} 
-          p(class="subheading") What i do well ? 
+              h2( @mouseover="hovereffect(index)" @mouseleave="hovering=false" :class="{hover : hovering && index===hoverElement } " class="hoverable lettersTitle fontshape heading" :key="index" v-for="(letter , index) in welcoming.split('')" )  {{letter !==" "  ? letter :'&nbsp '}} 
+          p(class="subheading ") What i do well ? 
     .row.gy-3.mt-5
         .col-lg-3.col-md-4.col-sm-6
             card(logo="vscode-icons:file-type-html" descriprion="HTML5"):  div(class="bar learning el100" data-skill="100%")
@@ -62,7 +62,7 @@ if (process.client) {
   gsap.to(titleafter, {
     width: "30%",
     autoAlpha: 0,
-    delay: 1,
+    // delay: 1,
     duration: 0.5,
     scrollTrigger: {
       trigger: ".mytitle",
@@ -138,7 +138,7 @@ function hovereffect2(index) {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 // .col-lg-3 {
 //   visibility: hidden;
 // }
@@ -148,7 +148,6 @@ function hovereffect2(index) {
 h2 {
   letter-spacing: 0.3rem;
   font-weight: 800;
-  
 }
 
 h2.hover {
