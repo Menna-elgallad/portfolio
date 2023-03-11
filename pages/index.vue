@@ -14,11 +14,6 @@ div.container
           div(class="button" id="button-7")
             div(id="dub-arrow"): img(src="https://github.com/atloomer/atloomer.github.io/blob/master/img/iconmonstr-arrow-48-240.png?raw=true" alt="") 
             span Explore my Portofolio
-      .brands 
-          a(href="https://www.facebook.com/profile.php?id=100007285412802" type="facebook" ).myicon: Icon(name="fa-brands:facebook-f" class="icon")
-          a(href="https://twitter.com/Mennaa_elgallad"  type="twitter").myicon: Icon(name="fa-brands:twitter" class="icon")
-          a(href="https://www.linkedin.com/in/menna-elgallad-a480b41b6/" type="linkedin").myicon: Icon(name="fa-brands:linkedin-in" class="icon")
-          a(href="https://github.com/Menna-elgallad" type="github").myicon: Icon(name="fa-brands:github" class="icon")    
   section#skills
       skills   
   section#projects
@@ -38,7 +33,6 @@ if (process.client) {
     scrollTrigger: {
       trigger: "#skills",
       toggleActions: "restart reset restart reset ",
-      markers: false,
     },
   });
   gsap.from("#section1", {
@@ -46,8 +40,8 @@ if (process.client) {
     duration: 1,
     scrollTrigger: {
       trigger: "#section1",
-      toggleActions: "restart reset restart reset ",
-    },
+      toggleActions: "restart reset restart reset "
+    }
   });
   gsap.from("#projects", {
     autoAlpha: 0,
@@ -55,8 +49,8 @@ if (process.client) {
     delay: 0.2,
     scrollTrigger: {
       trigger: "#projects",
-      toggleActions: "restart reset restart reset ",
-    },
+      toggleActions: "restart reset restart reset "
+    }
   });
 
   gsap.from(".letters", {
@@ -65,11 +59,11 @@ if (process.client) {
     y: -100,
     ease: "bounce.out",
     stagger: {
-      each: 0.04,
+      each: 0.04
     },
     scrollTrigger: {
-      trigger: ".letters",
-    },
+      trigger: ".letters"
+    }
   });
 }
 

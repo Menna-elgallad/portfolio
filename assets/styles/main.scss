@@ -32,6 +32,15 @@
             }
             background: #0F2027;
             /* fallback for old browsers */
+            background: -webkit-linear-gradient(to right,
+            #2C5364,
+            #203A43,
+            #0F2027);
+            /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to right,
+            #2C5364,
+            #203A43,
+            #0F2027);
             /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
             color: white;
             &::-webkit-scrollbar-track {
@@ -96,47 +105,6 @@
         @include links-mixin(rgba(0,
         0,
         0));
-    }
-    
-    #button-7 {
-        position: relative;
-        overflow: hidden;
-        cursor: pointer;
-    }
-    
-    #button-7 a {
-        position: relative;
-        left: 0;
-        transition: all .35s ease-Out;
-        font-weight: 800;
-    }
-    
-    #dub-arrow {
-        width: 104%;
-        height: 100%;
-        background: $main-color;
-        left: -243px;
-        position: absolute;
-        padding: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: all 0.35s ease-Out;
-        bottom: 0;
-        z-index: 100;
-    }
-    
-    #button-7 img {
-        width: 20px;
-        height: auto;
-    }
-    
-    #button-7:hover #dub-arrow {
-        left: 0;
-    }
-    
-    #button-7:hover a {
-        left: 150px;
     }
     
     .button {
@@ -227,6 +195,20 @@
         }
         100% {
             transform: scale(1, 1);
+        }
+    }
+    
+    .mytitle {
+        position: relative;
+        width: fit-content;
+        &::after {
+            content: "";
+            position: absolute;
+            height: 5px;
+            bottom: 0;
+            border-radius: 3rem;
+            background-color: $main-color;
+            left: 0;
         }
     }
     
