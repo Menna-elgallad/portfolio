@@ -14,6 +14,11 @@ div.container
           div(class="button" id="button-7")
             div(id="dub-arrow"): img(src="https://github.com/atloomer/atloomer.github.io/blob/master/img/iconmonstr-arrow-48-240.png?raw=true" alt="") 
             span Explore my Portofolio
+      .brands 
+          a(href="https://www.facebook.com/profile.php?id=100007285412802" type="facebook" ).myicon: Icon(name="fa-brands:facebook-f" class="icon")
+          a(href="https://twitter.com/Mennaa_elgallad"  type="twitter").myicon: Icon(name="fa-brands:twitter" class="icon")
+          a(href="https://www.linkedin.com/in/menna-elgallad-a480b41b6/" type="linkedin").myicon: Icon(name="fa-brands:linkedin-in" class="icon")
+          a(href="https://github.com/Menna-elgallad" type="github").myicon: Icon(name="fa-brands:github" class="icon")    
   section#skills
       skills   
   section#projects
@@ -33,6 +38,7 @@ if (process.client) {
     scrollTrigger: {
       trigger: "#skills",
       toggleActions: "restart reset restart reset ",
+      markers: false,
     },
   });
   gsap.from("#section1", {
@@ -84,7 +90,7 @@ function hovereffect2(index) {
 }
 </script>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 h2 {
   letter-spacing: 0.5rem;
   font-weight: 800;
@@ -135,6 +141,47 @@ section {
       border-top: 0;
       border-top: 15px solid #99edc3;
       position: absolute;
+    }
+  }
+}
+
+#section1 {
+  position: relative;
+  .brands {
+    position: absolute;
+    left: 50%;
+    transform: translatex(-50%);
+    bottom: 5%;
+    display: flex;
+    gap: 1rem;
+    a {
+      all: unset;
+    }
+    .myicon {
+      width: 40px;
+      height: 40px;
+      box-shadow: 0 0 10px -4px #ccc;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 1rem;
+      transition: all 0.5s ease;
+      &:hover {
+        background-color: white;
+      }
+      &[type="facebook"]:hover {
+        color: #1877f2;
+      }
+      &[type="twitter"]:hover {
+        color: #1da1f2;
+      }
+      &[type="linkedin"]:hover {
+        color: #0a66c2;
+      }
+      &[type="github"]:hover {
+        color: rgb(124 0 124);
+      }
     }
   }
 }

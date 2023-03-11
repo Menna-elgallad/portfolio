@@ -1,9 +1,8 @@
-.
 <template lang="pug">
 .mycontainer
   .box
     span.title
-        Icon(:name="logo" style="font-size:80px ; display: block; margin: auto;" )
+        Icon(:name="logo" style="font-size:60px ; display: block; margin: auto;" )
         div(style="margin:auto")
             strong {{descriprion}}
         div    
@@ -24,7 +23,7 @@ const props = defineProps({
   font-family: sans-serif;
 }
 
-.box::before,
+/* .box::before,
 .box::after {
   content: "";
   background-color: #fab5704c;
@@ -47,15 +46,12 @@ const props = defineProps({
   top: 8%;
   right: 5%;
   border: 1px solid;
-}
+} */
 
 .mycontainer .box {
   width: 11.875em;
   padding: 1rem;
-  background-color: rgb(0 0 0 / 15%);
-  /* border: 1px solid rgba(255, 255, 255, 0.222); */
-  -webkit-backdrop-filter: blur(20px);
-  backdrop-filter: blur(20px);
+
   border-radius: 0.7rem;
   transition: all ease 0.3s;
   margin: auto;

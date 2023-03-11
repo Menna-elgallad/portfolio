@@ -24,20 +24,14 @@
     
     body {
         &.true {
+            .maincolor {
+                color: white;
+            }
             a {
                 color: white;
             }
             background: #0F2027;
             /* fallback for old browsers */
-            background: -webkit-linear-gradient(to right,
-            #2C5364,
-            #203A43,
-            #0F2027);
-            /* Chrome 10-25, Safari 5.1-6 */
-            background: linear-gradient(to right,
-            #2C5364,
-            #203A43,
-            #0F2027);
             /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
             color: white;
             &::-webkit-scrollbar-track {
@@ -59,6 +53,9 @@
             }
         }
         &.false {
+            .maincolor {
+                color: black;
+            }
             a {
                 color: black;
             }
@@ -233,20 +230,6 @@
         }
     }
     
-    .mytitle {
-        position: relative;
-        width: fit-content;
-        &::after {
-            content: "";
-            position: absolute;
-            height: 5px;
-            bottom: 0;
-            border-radius: 3rem;
-            background-color: $main-color;
-            left: 0;
-        }
-    }
-    
     .subheading {
         color: #afabab;
         font-size: larger;
@@ -259,4 +242,8 @@
     
     h2.heading {
         font-size: clamp(2.188rem, 2vw + 2rem, 4.375rem) !important;
+    }
+    
+    h2.heading2 {
+        font-size: clamp(2.188rem, 2vw + 2rem, 3.575rem) !important;
     }

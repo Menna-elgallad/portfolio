@@ -1,16 +1,16 @@
 <template lang="pug">
-.flip-card(:class="{indexmatch : index }")
-  .flip-card-inner
-    .flip-card-front(:style="{  'background-image': 'url(' + srcsite + ')' }")
 
-    .flip-card-back
-        .description 
-          h3 {{ title }}
-          h2(class="tech") Technologies 
-          p {{  description}}
-        .links
-          a(:href="linklive" target="_blank") Live demo
-          a(:href="linkcode" target="_blank")  github
+.project.col-lg-4
+    img(:src="srcsite")
+    button view project
+    //- .flip-card-back
+    //-     .description 
+    //-       h3 {{ title }}
+    //-       h2(class="tech") Technologies 
+    //-       p {{  description}}
+    //-     .links
+    //-       a(:href="linklive" target="_blank") Live demo
+    //-       a(:href="linkcode" target="_blank")  github
   
 </template>
 
@@ -27,110 +27,45 @@ console.log("active", props.index);
 </script>
 
 <style lang="scss" scoped>
-.tech {
-  color: $main-color;
-}
-.flip-card {
-  background-color: transparent;
-  width: 100%;
-  height: 50vh;
-  perspective: 1000px;
-}
-
-.title {
-  font-size: 1.5em;
-  font-weight: 900;
-  text-align: center;
-  margin: 0;
-}
-
-.flip-card-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  transition: transform 0.8s;
-  transform-style: preserve-3d;
-}
-
-.indexmatch:hover .flip-card-inner {
-  transform: rotateY(180deg);
-}
-
-.flip-card-front,
-.flip-card-back {
-  box-shadow: 0 8px 14px 0 rgba(0, 0, 0, 0.2);
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  border: 1px solid #c2c2c2;
-  border-radius: 1rem;
+.project {
+  // width: fit-content;
+  // height: fit-content;
   overflow: hidden;
-  background-size: cover;
-  background-position: top center;
-  .img {
-    width: 100%;
-    height: 100%;
-    backdrop-filter: blur(10px);
+  background-color: rgb(0, 0, 0);
+  z-index: 1000;
+  position: relative;
+  transition: all 0.6s ease;
 
+  &:hover {
+    button {
+      display: block;
+      width: 100px;
+      height: 100px;
+    }
     img {
-      width: 50%;
-      height: 50%;
-      object-fit: contain;
-      object-position: center;
-      position: absolute;
-      bottom: 19%;
-      right: 26%;
+      transform: scale(1.2);
+      opacity: 50%;
     }
   }
-}
-// .flip-card-front {
-//   img {
-//     object-fit: cover;
-//     width: 100%;
-//     height: 100%;
-//   }
-// }
-.project_title {
-  background-color: rgba(240, 240, 240, 0.699);
-  box-shadow: 0 0 8px 2px #cccc;
-  padding: 1rem;
-  width: 100%;
-  position: absolute;
-  bottom: 0;
-  font-weight: 700;
-}
-.flip-card-back {
-  transform: rotateY(180deg);
-  background-color: rgba(240, 240, 240, 0.123);
-  div {
+  img {
     width: 100%;
+    transition: all 0.5s ease;
   }
-  .links {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-  }
-}
-// .description {
-//   width: 60%;
-//   margin: auto;
-// }
-a {
-  border: 1px solid $main-color;
-  text-decoration: none;
-  padding: 0.5rem 1rem;
-  width: 30%;
-  transition: all 0.5s ease-in-out;
-  &:hover {
-    background-color: #c2c2c22a !important;
 
-    transform: scale(1.05);
+  button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: none;
+    padding: 1.5rem;
+
+    border-radius: 50%;
+
+    background-color: rgb(153 237 195);
+    // font-weight: 600;
+    color: white;
+    display: none;
   }
 }
 </style>

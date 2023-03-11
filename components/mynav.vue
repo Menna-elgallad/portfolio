@@ -7,17 +7,17 @@
             nav
                 ul
                     li.ms-5: NuxtLink(to="#skills" class="hoverable") 
-                        a(style="display:block"): span(style="font-size:smaller ; color:#9b9b9b") 001 
+                        a(style="display:block"): span(style="font-size:smaller ; color:#99edc3") 001 
                         span &lt;Skills/&gt;
                     
                     li.ms-5: NuxtLink(to="#projects" class="hoverable") 
-                        a(style="display:block"): span(style="font-size:smaller ; color:#9b9b9b") 010 
+                        a(style="display:block"): span(style="font-size:smaller ; color:#99edc3") 010 
                         span &lt;Projects/&gt;
                     li.ms-5: NuxtLink(to="#MyExpertise" class="hoverable")
-                        a(style="display:block"): span(style="font-size:smaller ; color:#9b9b9b") 011 
+                        a(style="display:block"): span(style="font-size:smaller ; color:#99edc3") 011 
                         span &lt;Experience/&gt;
                     li.ms-5: NuxtLink(to="#" class="hoverable") 
-                        a(style="display:block" ): span(style="font-size:smaller ; color:#9b9b9b") 100
+                        a(style="display:block" ): span(style="font-size:smaller ; color:#99edc3") 100
                         span &lt;Contact/&gt;
         .dark 
             Icon(name="bi:sun-fill" @click="toggle(!isdark)" v-if="isdark" ).darklogo
