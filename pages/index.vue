@@ -10,10 +10,8 @@ div.container
 
           p( @mouseover="hovereffect2(index)" @mouseleave="hovering2=false" :class="{hover : hovering2 && index===hoverElement}" class="hoverable letters subtitle" :key="index" v-for="(letter , index) in welcoming1.split('')") {{letter !==" "  ? letter :'&nbsp '}}
           .chat Hover on me !!
-        NuxtLink(href="#skills")
-          div(class="button" id="button-7")
-            div(id="dub-arrow"): img(src="https://github.com/atloomer/atloomer.github.io/blob/master/img/iconmonstr-arrow-48-240.png?raw=true" alt="") 
-            span Explore my Portofolio
+        Mybutton(link="#skills" content="Explore my Portofolio")  
+ 
   section#skills
       skills   
   section#projects
@@ -33,15 +31,17 @@ if (process.client) {
     scrollTrigger: {
       trigger: "#skills",
       toggleActions: "restart reset restart reset ",
-    },
+
+      markers: false
+    }
   });
   gsap.from("#section1", {
     autoAlpha: 0,
     duration: 1,
     scrollTrigger: {
       trigger: "#section1",
-      toggleActions: "restart reset restart reset ",
-    },
+      toggleActions: "restart reset restart reset "
+    }
   });
   gsap.from("#projects", {
     autoAlpha: 0,
@@ -49,8 +49,8 @@ if (process.client) {
     delay: 0.2,
     scrollTrigger: {
       trigger: "#projects",
-      toggleActions: "restart reset restart reset ",
-    },
+      toggleActions: "restart reset restart reset "
+    }
   });
 
   gsap.from(".letters", {
@@ -59,11 +59,11 @@ if (process.client) {
     y: -100,
     ease: "bounce.out",
     stagger: {
-      each: 0.04,
+      each: 0.04
     },
     scrollTrigger: {
-      trigger: ".letters",
-    },
+      trigger: ".letters"
+    }
   });
 }
 

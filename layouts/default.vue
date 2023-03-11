@@ -1,10 +1,10 @@
 <template lang="pug">
 .wrapper 
   .brands 
-    a(href="https://www.facebook.com/profile.php?id=100007285412802" type="facebook" ).myicon: Icon(name="fa-brands:facebook-f" class="icon")
-    a(href="https://twitter.com/Mennaa_elgallad"  type="twitter").myicon: Icon(name="fa-brands:twitter" class="icon")
-    a(href="https://www.linkedin.com/in/menna-elgallad-a480b41b6/" type="linkedin").myicon: Icon(name="fa-brands:linkedin-in" class="icon")
-    a(href="https://github.com/Menna-elgallad" type="github").myicon: Icon(name="fa-brands:github" class="icon")
+    //- a(href="https://www.facebook.com/profile.php?id=100007285412802" type="facebook" ).myicon: Icon(name="fa-brands:facebook-f" class="icon")
+    //- a(href="https://twitter.com/Mennaa_elgallad"  type="twitter").myicon: Icon(name="fa-brands:twitter" class="icon")
+    //- a(href="https://www.linkedin.com/in/menna-elgallad-a480b41b6/" type="linkedin").myicon: Icon(name="fa-brands:linkedin-in" class="icon")
+    //- a(href="https://github.com/Menna-elgallad" type="github").myicon: Icon(name="fa-brands:github" class="icon")
   #stars 
   #stars2
   #stars3
@@ -33,11 +33,11 @@ if (process.client) {
   gsap.to(".myicon", {
     keyframes: {
       "50%": { y: "-=15" },
-      "100%": { y: "+=15", delay: 0.1 },
+      "100%": { y: "+=15", delay: 0.1 }
     },
     duration: 2,
 
-    repeat: -1,
+    repeat: -1
   });
   //move down right
 
@@ -52,23 +52,23 @@ if (process.client) {
   function onMouseMove(e) {
     TweenMax.to(".cursor__ball--big", 0.4, {
       left: e.pageX - 15,
-      top: e.pageY - 15,
+      top: e.pageY - 15
     });
     TweenMax.to(".cursor__ball--small", 0.1, {
       left: e.pageX - 5,
-      top: e.pageY - 7,
+      top: e.pageY - 7
     });
   }
 
   // Hover an element
   function onMouseHover() {
     TweenMax.to(".cursor__ball--big", 0.3, {
-      scale: 4,
+      scale: 4
     });
   }
   function onMouseHoverOut() {
     TweenMax.to(".cursor__ball--big", 0.3, {
-      scale: 1,
+      scale: 1
     });
   }
 }
@@ -96,6 +96,7 @@ if (process.client) {
       align-items: center;
       margin-top: 1rem;
       transition: all 0.5s ease;
+      z-index: 10000000;
       &:hover {
         background-color: white;
       }

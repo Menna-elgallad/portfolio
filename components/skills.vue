@@ -1,6 +1,6 @@
 <template lang="pug">
 .container 
-    .myheading: .mytitle
+    .myheading: .mytitle2
           .d-flex
               h2( @mouseover="hovereffect(index)" @mouseleave="hovering=false" :class="{hover : hovering && index===hoverElement } " class="hoverable lettersTitle fontshape heading" :key="index" v-for="(letter , index) in welcoming.split('')" )  {{letter !==" "  ? letter :'&nbsp '}} 
           p(class="subheading ") What i do well ? 
@@ -43,83 +43,80 @@ if (process.client) {
   var el80 = CSSRulePlugin.getRule(".el80:before");
   var el90 = CSSRulePlugin.getRule(".el90:before");
   var el100 = CSSRulePlugin.getRule(".el100:before");
-  var titleafter = CSSRulePlugin.getRule(".mytitle:after");
+  var titleafter = CSSRulePlugin.getRule(".mytitle2:after");
   gsap.from(".lettersTitle", {
     autoAlpha: 0,
     duration: 1,
     y: -100,
     ease: "bounce.out",
     stagger: {
-      each: 0.04,
+      each: 0.04
     },
     scrollTrigger: {
       trigger: ".lettersTitle",
-      markers: true,
-      start: "100px bottom",
-    },
+      start: "100px bottom"
+    }
   });
 
   gsap.to(titleafter, {
     width: "30%",
-    autoAlpha: 0,
-    // delay: 1,
+    // autoAlpha: 0,
+    delay: 0.5,
     duration: 0.5,
     scrollTrigger: {
-      trigger: ".mytitle",
-    },
+      trigger: ".mytitle2"
+    }
   });
   gsap.from(`.col-lg-3`, {
     autoAlpha: 0,
-    duration: 1,
+    duration: 0.5,
     scale: 0.5,
     delay: 1.2,
     stagger: {
-      each: 0.1,
+      each: 0.1
     },
 
     scrollTrigger: {
-      trigger: ".col-lg-3",
-      // toggleActions: "restart reset restart complete",
-      //   markers: true,
-      // end: "700px top",
-    },
+      trigger: ".col-lg-3"
+    }
   });
 
   gsap.to(el80, {
-    autoAlpha: 0,
+    // autoAlpha: 0,
     duration: 1,
     delay: 3,
     width: "80%",
     stagger: {
-      each: 0.1,
+      each: 0.1
     },
     scrollTrigger: {
-      trigger: ".el80",
-    },
+      trigger: ".col-lg-3"
+    }
   });
   gsap.to(el100, {
-    autoAlpha: 0,
+    // autoAlpha: 0,
     duration: 1,
     width: "100%",
     delay: 3,
     stagger: {
-      each: 0.1,
+      each: 0.1
     },
     scrollTrigger: {
-      trigger: ".el100",
-    },
+      trigger: ".col-lg-3"
+    }
   });
   gsap.to(el90, {
-    autoAlpha: 0,
+    // autoAlpha: 0,
     duration: 1,
     delay: 3,
     stagger: {
-      each: 0.1,
+      each: 0.1
     },
     width: "90%",
+
     scrollTrigger: {
-      trigger: ".el90",
-    },
+      trigger: ".col-lg-3"
+    }
   });
 }
 const hovering = ref(false);
@@ -138,10 +135,10 @@ function hovereffect2(index) {
 }
 </script>
 
-<style lang="scss" scoped>
-// .col-lg-3 {
+<style  lang="scss">
+/* // .col-lg-3 {
 //   visibility: hidden;
-// }
+// } */
 .lettersTitle {
   visibility: hidden;
 }
@@ -153,7 +150,7 @@ h2 {
 h2.hover {
   color: #99edc3;
   animation: ani 0.8s ease-in-out infinite;
-  // transform: scale(1.5, 1.8);
+  /* // transform: scale(1.5, 1.8); */
 }
 .bar {
   background-color: #fff;
@@ -172,6 +169,7 @@ h2.hover {
   display: inline-block;
   padding: 5px 0 5px 10px;
   border-radius: inherit;
+  /* width: 0px; */
 }
 .el90::before {
   content: attr(data-skill);
@@ -179,6 +177,7 @@ h2.hover {
   display: inline-block;
   padding: 5px 0 5px 10px;
   border-radius: inherit;
+  /* width: 0px; */
 }
 .el100::before {
   content: attr(data-skill);
@@ -186,8 +185,22 @@ h2.hover {
   display: inline-block;
   padding: 5px 0 5px 10px;
   border-radius: inherit;
+  /* width: 0px; */
 }
-// .bar.learning::before {
+/* // .bar.learning::before {
 //   width: calc(20% - 10px);
-// }
+// } */
+.mytitle2 {
+  position: relative;
+  width: fit-content;
+  &::after {
+    content: "";
+    position: absolute;
+    height: 5px;
+    bottom: 0;
+    border-radius: 3rem;
+    background-color: $main-color;
+    left: 0;
+  }
+}
 </style>
