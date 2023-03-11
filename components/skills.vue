@@ -1,9 +1,9 @@
 <template lang="pug">
 .container 
-    .myheading: .mytitle2
+    .myheading: .mytitle
           .d-flex
               h2( @mouseover="hovereffect(index)" @mouseleave="hovering=false" :class="{hover : hovering && index===hoverElement } " class="hoverable lettersTitle fontshape heading2" :key="index" v-for="(letter , index) in welcoming.split('')" )  {{letter !==" "  ? letter :'&nbsp '}} 
-          p(class="subheading ") And The skills, tools and technologies I use to bring your products to life 
+          p(class="subheading ") ِAnd The skills, tools and technologies I use to bring your products to life 
     .aboutme.p-4.mt-3
       p.subheading Hi , My name is Menna Elgalld a iam a #[span.maincolor CS student and front end web developers ], My Passion is about crafting beautiful and intuitive user experiences that delight users and exceed expectations.#[br] I pays meticulous attention to detail and takes pride in producing #[span.maincolor clean, efficient, and maintainable code.] #[br]  Also enjoys collaborating with designers, UX specialists, and other stakeholders to bring their visions to life. I am always learning and exploring new tools, frameworks, and techniques to stay ahead of the curve and deliver exceptional results.#[br]  #[span.maincolor My ultimate goal ]is to create websites that not only look great, but also perform flawlessly across all devices and platforms.
     .row.mt-3
@@ -46,17 +46,20 @@ if (process.client) {
   var el90 = CSSRulePlugin.getRule(".el90:before");
   var el100 = CSSRulePlugin.getRule(".el100:before");
   var titleafter = CSSRulePlugin.getRule(".mytitle:after");
+  var titlebefore = CSSRulePlugin.getRule(".mytitle:before");
+  var maincolor = CSSRulePlugin.getRule(".maincolor:before");
+
   gsap.from(".lettersTitle", {
     autoAlpha: 0,
     duration: 1,
     y: -100,
     ease: "bounce.out",
     stagger: {
-      each: 0.04
+      each: 0.04,
     },
     scrollTrigger: {
       trigger: ".lettersTitle",
-      markers: true,
+      markers: false,
       start: "100px bottom",
     },
   });
@@ -71,12 +74,11 @@ if (process.client) {
   });
   gsap.to(titleafter, {
     width: "30%",
-    autoAlpha: 0,
-    // delay: 1,
+    // autoAlpha: 0,
     duration: 0.5,
     scrollTrigger: {
-      trigger: ".mytitle2"
-    }
+      trigger: ".mytitle",
+    },
   });
   gsap.from(".subtitle", {
     autoAlpha: 0,
@@ -102,17 +104,17 @@ if (process.client) {
 
   gsap.from(`.col-lg-2`, {
     autoAlpha: 0,
-    duration: 0.5,
+    duration: 1,
     scale: 0.5,
     delay: 1,
     stagger: {
-      each: 0.1
+      each: 0.1,
     },
 
     scrollTrigger: {
-      trigger: ".col-lg-3",
+      trigger: ".col-lg-2",
       // toggleActions: "restart reset restart complete",
-      //   markers: true,
+      markers: false,
       // end: "700px top",
     },
   });
@@ -123,11 +125,11 @@ if (process.client) {
     delay: 2,
     width: "80%",
     stagger: {
-      each: 0.1
+      each: 0.1,
     },
     scrollTrigger: {
-      trigger: ".col-lg-3"
-    }
+      trigger: ".el80",
+    },
   });
   gsap.to(el100, {
     // autoAlpha: 0,
@@ -135,24 +137,23 @@ if (process.client) {
     width: "100%",
     delay: 2,
     stagger: {
-      each: 0.1
+      each: 0.1,
     },
     scrollTrigger: {
-      trigger: ".col-lg-3"
-    }
+      trigger: ".el100",
+    },
   });
   gsap.to(el90, {
     // autoAlpha: 0,
     duration: 1,
     delay: 2,
     stagger: {
-      each: 0.1
+      each: 0.1,
     },
     width: "90%",
-
     scrollTrigger: {
-      trigger: ".col-lg-3"
-    }
+      trigger: ".el90",
+    },
   });
 }
 const hovering = ref(false);
@@ -171,10 +172,11 @@ function hovereffect2(index) {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 // .col-lg-3 {
 //   visibility: hidden;
 // }
+
 .lettersTitle {
   visibility: hidden;
 }
@@ -186,7 +188,7 @@ h2 {
 h2.hover {
   color: #99edc3;
   animation: ani 0.8s ease-in-out infinite;
-  /* // transform: scale(1.5, 1.8); */
+  // transform: scale(1.5, 1.8);
 }
 .bar {
   background-color: #fff;
@@ -222,7 +224,6 @@ h2.hover {
   display: inline-block;
   padding: 5px 0 5px 10px;
   border-radius: inherit;
-  /* width: 0px; */
 }
 .el90:before {
   content: attr(data-skill);
@@ -230,7 +231,6 @@ h2.hover {
   display: inline-block;
   padding: 5px 0 5px 10px;
   border-radius: inherit;
-  /* width: 0px; */
 }
 .el100:before {
   content: attr(data-skill);
@@ -238,9 +238,36 @@ h2.hover {
   display: inline-block;
   padding: 5px 0 5px 10px;
   border-radius: inherit;
-  /* width: 0px; */
 }
-/* // .bar.learning::before {
+// .bar.learning::before {
 //   width: calc(20% - 10px);
 // }
+.mytitle {
+  position: relative;
+  width: fit-content;
+  &:after {
+    content: "";
+    position: absolute;
+    height: 5px;
+    bottom: 4px;
+    border-radius: 3rem;
+    background-color: $main-color;
+    left: 1px;
+  }
+  &:before {
+    content: "";
+    position: absolute;
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    bottom: 0;
+    border-radius: 3rem;
+    background-color: $main-color;
+    left: 0;
+    opacity: 0;
+  }
+}
+.aboutme {
+  line-height: 2rem;
+}
 </style>

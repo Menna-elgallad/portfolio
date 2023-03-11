@@ -2,7 +2,7 @@
 .mycontainer
   .box
     span.title
-        Icon(:name="logo" style="font-size:60px ; display: block; margin: auto;" )
+        Icon(:name="logo" style="font-size:50px ; display: block; margin: auto;" )
         div(style="margin:auto")
             strong {{descriprion}}
         div    
@@ -13,7 +13,7 @@
 <script setup>
 const props = defineProps({
   logo: String,
-  descriprion: String
+  descriprion: String,
 });
 </script>
 

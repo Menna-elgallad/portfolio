@@ -1,13 +1,16 @@
 <template lang="pug">
 
-    .flip-card-back
-        .description 
-          h3 {{ title }}
-          h2(class="tech") Technologies 
-          p {{  description}}
-        .links
-          a(:href="linklive" target="_blank") Live demo
-          a(:href="linkcode" target="_blank")  github
+.project.col-lg-4
+    img(:src="srcsite")
+    button view project
+    //- .flip-card-back
+    //-     .description 
+    //-       h3 {{ title }}
+    //-       h2(class="tech") Technologies 
+    //-       p {{  description}}
+    //-     .links
+    //-       a(:href="linklive" target="_blank") Live demo
+    //-       a(:href="linkcode" target="_blank")  github
   
 </template>
 
@@ -18,7 +21,7 @@ const props = defineProps({
   linklive: String,
   linkcode: String,
   title: String,
-  index: Boolean
+  index: Boolean,
 });
 console.log("active", props.index);
 </script>
@@ -48,26 +51,21 @@ console.log("active", props.index);
     width: 100%;
     transition: all 0.5s ease;
   }
-  .links {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-  }
-}
-// .description {
-//   width: 60%;
-//   margin: auto;
-// }
-a {
-  border: 1px solid $main-color;
-  text-decoration: none;
-  padding: 0.5rem 1rem;
-  width: 30%;
-  transition: all 0.5s ease-in-out;
-  &:hover {
-    background-color: #c2c2c22a !important;
 
-    transform: scale(1.05);
+  button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: none;
+    padding: 1.5rem;
+
+    border-radius: 50%;
+
+    background-color: rgb(153 237 195);
+    // font-weight: 600;
+    color: white;
+    display: none;
   }
 }
 </style>

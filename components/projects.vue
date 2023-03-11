@@ -1,6 +1,6 @@
 <template lang="pug">
 .container 
-    .myheading: .mytitle
+    .myheading: .mytitle2
             .d-flex
                 h2( @mouseover="hovereffect(index)" @mouseleave="hovering=false" :class="{hover : hovering && index===hoverElement } " class="hoverable heading2 lettersTitle2 fontshape" :key="index" v-for="(letter , index) in welcoming.split('')" )  {{letter !==" "  ? letter :'&nbsp '}} 
             p(class="subheading "  ) A Selection Of Stuff I've Built
@@ -27,28 +27,29 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import CSSRulePlugin from "gsap/CSSRulePlugin";
 const modules = [Navigation, Pagination, Scrollbar, A11y];
 gsap.registerPlugin(ScrollTrigger, CSSRulePlugin);
-const onSwiper = swiper => {
+const onSwiper = (swiper) => {
   console.log(swiper);
 };
 const slideI = ref(0);
-const onSlideChange = e => {
+const onSlideChange = (e) => {
   console.log("slide change");
   slideI.value = e.activeIndex;
 };
 
 if (process.client) {
-  var titleafter = CSSRulePlugin.getRule(".mytitle:after");
+  var titleafter2 = CSSRulePlugin.getRule(".mytitle2:after");
+  var titlebefore2 = CSSRulePlugin.getRule(".mytitle2:before");
   gsap.from(".lettersTitle2", {
     autoAlpha: 0,
     duration: 1,
     y: -100,
     ease: "bounce.out",
     stagger: {
-      each: 0.04
+      each: 0.04,
     },
     scrollTrigger: {
       trigger: ".lettersTitle2",
-      markers: true,
+      markers: false,
       start: "100px bottom",
     },
   });
@@ -63,11 +64,10 @@ if (process.client) {
 
   gsap.to(titleafter2, {
     width: "30%",
-    autoAlpha: 0,
-    delay: 1,
+
     duration: 0.5,
     scrollTrigger: {
-      trigger: ".mytitle",
+      trigger: ".mytitle2",
     },
   });
 }
@@ -87,7 +87,7 @@ function hovereffect2(index) {
 }
 </script>
 
-<style scoped>
+<style lang="scss">
 @import "../node_modules/vue3-carousel/dist/carousel.css";
 .lettersTitle2 {
   visibility: hidden;
@@ -110,5 +110,30 @@ h2.hover {
   color: #fff;
   font-weight: bold;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+}
+.mytitle2 {
+  position: relative;
+  width: fit-content;
+  &:after {
+    content: "";
+    position: absolute;
+    height: 5px;
+    bottom: 4px;
+    border-radius: 3rem;
+    background-color: $main-color;
+    left: 1px;
+  }
+  &:before {
+    content: "";
+    position: absolute;
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    bottom: 0;
+    border-radius: 3rem;
+    background-color: $main-color;
+    left: 0;
+    opacity: 0;
+  }
 }
 </style>

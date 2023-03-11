@@ -198,20 +198,6 @@
         }
     }
     
-    .mytitle {
-        position: relative;
-        width: fit-content;
-        &::after {
-            content: "";
-            position: absolute;
-            height: 5px;
-            bottom: 0;
-            border-radius: 3rem;
-            background-color: $main-color;
-            left: 0;
-        }
-    }
-    
     .subheading {
         color: #afabab;
         font-size: larger;
