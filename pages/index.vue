@@ -11,11 +11,17 @@ div.container
           p( @mouseover="hovereffect2(index)" @mouseleave="hovering2=false" :class="{hover : hovering2 && index===hoverElement}" class="hoverable letters subtitle" :key="index" v-for="(letter , index) in welcoming1.split('')") {{letter !==" "  ? letter :'&nbsp '}}
           .chat Hover on me !!
         Mybutton(link="#skills" content="Explore my Portofolio")
+      .brands 
+          a(href="https://www.facebook.com/profile.php?id=100007285412802" type="facebook" ).myicon: Icon(name="fa-brands:facebook-f" class="icon")
+          a(href="https://twitter.com/Mennaa_elgallad"  type="twitter").myicon: Icon(name="fa-brands:twitter" class="icon")
+          a(href="https://www.linkedin.com/in/menna-elgallad-a480b41b6/" type="linkedin").myicon: Icon(name="fa-brands:linkedin-in" class="icon")
+          a(href="https://github.com/Menna-elgallad" type="github").myicon: Icon(name="fa-brands:github" class="icon")  
   section#skills
       skills   
   section#projects
       projects       
-  
+  section#test
+      transsitions
 </template>
 
 <script setup>
@@ -29,6 +35,14 @@ if (process.client) {
     delay: 0.2,
     scrollTrigger: {
       trigger: "#skills",
+      toggleActions: "restart reset restart reset ",
+    },
+  });
+  gsap.from("#test", {
+    autoAlpha: 0,
+    duration: 1.5,
+    scrollTrigger: {
+      trigger: "#test",
       toggleActions: "restart reset restart reset ",
     },
   });
@@ -63,7 +77,14 @@ if (process.client) {
     },
   });
 }
+// const slowScroll = () => {
+//   const scrollSpeed = 0.5; // Adjust this value to change the scroll speed
+//   window.scrollBy(0, 20);
+// };
 
+// onMounted(() => {
+//   window.addEventListener("scroll", slowScroll());
+// });
 const hovering = ref(false);
 const hovering2 = ref(false);
 const hoverElement = ref(null);

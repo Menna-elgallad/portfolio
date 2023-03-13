@@ -4,18 +4,29 @@
             .d-flex
                 h2( @mouseover="hovereffect(index)" @mouseleave="hovering=false" :class="{hover : hovering && index===hoverElement } " class="hoverable heading2 lettersTitle2 fontshape" :key="index" v-for="(letter , index) in welcoming.split('')" )  {{letter !==" "  ? letter :'&nbsp '}} 
             p(class="subheading "  ) A Selection Of Stuff I've Built
-    .projects.mt-5.row.gx-0
+    .projects.mt-5.row.gx-2.gy-2
       
-        flipcard(srclogo="/_nuxt/assets/images/humm.svg" , linklive="https://humm-cloned-site-production.up.railway.app/" srcsite="/_nuxt/assets/images/humm.png" linkcode="https://github.com/Menna-elgallad/humm-cloned-site-" title="Humm clones website" description="Nuxt3 , pug , Graphql-client , Bootstrap , Typescript" :index="slideI === 0" )
-        flipcard(srclogo="/_nuxt/assets/images/tygo.svg" , linklive="https://menna-elgallad.github.io/Tygoapp/" srcsite="/_nuxt/assets/images/tygo.png" linkcode="https://github.com/Menna-elgallad/Tygoapp" title="Tygo app" description="Html , Sass , Bootstrap , vanilla jasvascript " :index="slideI === 1" )
-        flipcard(srclogo="/_nuxt/assets/images/landing2.svg" , linklive="https://menna-elgallad.github.io/kasper-landingpage/" srcsite="/_nuxt/assets/images/kasper.png" linkcode="https://github.com/Menna-elgallad/kasper-landingpage" title="kasper responsive landing page" description="Html , Css ,Bootstrap" :index="slideI === 2"  )
-        flipcard(srclogo="/_nuxt/assets/images/cart.svg" , linklive="https://menna-elgallad.github.io/cart-system/" srcsite="/_nuxt/assets/images/cart.png" linkcode="https://github.com/Menna-elgallad/cart-system" title ="cart system" description="Html , Css ,Typescript" :index="slideI === 3" )
-        flipcard(srclogo="/_nuxt/assets/images/landing.svg" , linklive="https://menna-elgallad.github.io/landing-page/" srcsite="/_nuxt/assets/images/land2.png" linkcode="https://github.com/Menna-elgallad/landing-page" title="Responsive landing page" description="Html , Css ,Bootstrap" :index="slideI === 4"  )
+        .project.col-lg-4
+          div 
+            img(src="/_nuxt/assets/images/cart.png" )
+            .content HTML CSS 
+          div.mt-2
+             img(src="/_nuxt/assets/images/land2.png" )
+             .content HTML CSS 
+        .project.col-lg-8: div.icondiv(style="background-color:beige")
+             img.logo(src="/_nuxt/assets/images/humm.svg")
+             .content HTML CSS 
+        .project.col-lg-6: div.icondiv 
+              img.logo(src="/_nuxt/assets/images/tygo.svg") 
+              .content HTML CSS 
+
+        .project.col-lg-6: div
+               img(src="/_nuxt/assets/images/kasper.png"  )
+               .content HTML CSS 
         
 </template>
 
 <script setup>
-import { Swiper, SwiperSlide } from "swiper/vue";
 import { Navigation, Pagination, Scrollbar, A11y } from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -89,6 +100,74 @@ function hovereffect2(index) {
 
 <style lang="scss">
 @import "../node_modules/vue3-carousel/dist/carousel.css";
+
+.project {
+  // width: fit-content;
+
+  overflow: hidden;
+
+  z-index: 1000;
+  position: relative;
+  transition: all 0.6s ease;
+  div {
+    border: 5px solid white;
+    position: relative;
+    .content {
+      width: 100%;
+      background-color: white;
+      position: absolute;
+      bottom: 0;
+      color: black;
+      border-radius: 0;
+      padding: 1rem;
+    }
+    &:hover {
+      button {
+        display: block;
+        width: 100px;
+        height: 100px;
+      }
+      img {
+        transform: scale(1.2);
+        opacity: 50%;
+      }
+    }
+    &.icondiv {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+      background-color: white;
+    }
+    overflow: hidden;
+    border-radius: 1.2rem;
+    img {
+      width: 100%;
+      transition: all 0.5s ease;
+      &.logo {
+        width: 50% !important;
+      }
+
+      button {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border: none;
+        padding: 1.5rem;
+
+        border-radius: 50%;
+
+        background-color: rgb(153 237 195);
+        // font-weight: 600;
+        color: white;
+        display: none;
+      }
+    }
+  }
+}
+
 .lettersTitle2 {
   visibility: hidden;
 }

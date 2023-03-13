@@ -41,6 +41,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import CSSRulePlugin from "gsap/CSSRulePlugin";
 gsap.registerPlugin(ScrollTrigger, CSSRulePlugin);
+
 if (process.client) {
   var el80 = CSSRulePlugin.getRule(".el80:before");
   var el90 = CSSRulePlugin.getRule(".el90:before");
@@ -106,9 +107,9 @@ if (process.client) {
     autoAlpha: 0,
     duration: 1,
     scale: 0.5,
-    delay: 1,
+    delay: 0.5,
     stagger: {
-      each: 0.1,
+      each: 0.05,
     },
 
     scrollTrigger: {
@@ -122,7 +123,7 @@ if (process.client) {
   gsap.to(el80, {
     // autoAlpha: 0,
     duration: 1,
-    delay: 2,
+    delay: 1,
     width: "80%",
     stagger: {
       each: 0.1,
@@ -135,7 +136,7 @@ if (process.client) {
     // autoAlpha: 0,
     duration: 1,
     width: "100%",
-    delay: 2,
+    delay: 1,
     stagger: {
       each: 0.1,
     },
@@ -146,7 +147,7 @@ if (process.client) {
   gsap.to(el90, {
     // autoAlpha: 0,
     duration: 1,
-    delay: 2,
+    delay: 1,
     stagger: {
       each: 0.1,
     },
