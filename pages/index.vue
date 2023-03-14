@@ -20,8 +20,11 @@ div.container
       skills   
   section#projects
       projects       
-  section#test
-      transsitions
+  section#exper
+      expertse
+  section#contact
+    contact   
+  
 </template>
 
 <script setup>
@@ -38,11 +41,19 @@ if (process.client) {
       toggleActions: "restart reset restart reset ",
     },
   });
-  gsap.from("#test", {
+  gsap.from("#exper", {
     autoAlpha: 0,
     duration: 1.5,
     scrollTrigger: {
-      trigger: "#test",
+      trigger: "#exper",
+      toggleActions: "restart reset restart reset ",
+    },
+  });
+  gsap.from("#contact", {
+    autoAlpha: 0,
+    duration: 1.5,
+    scrollTrigger: {
+      trigger: "#contact",
       toggleActions: "restart reset restart reset ",
     },
   });

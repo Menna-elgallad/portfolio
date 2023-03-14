@@ -7,22 +7,66 @@
     .projects.mt-5.row.gx-2.gy-2
       
         .project.col-lg-4
-          div 
+          div.project1
             img(src="/_nuxt/assets/images/cart.png" )
-            .content HTML CSS 
-          div.mt-2
-             img(src="/_nuxt/assets/images/land2.png" )
-             .content HTML CSS 
-        .project.col-lg-8: div.icondiv(style="background-color:beige")
-             img.logo(src="/_nuxt/assets/images/humm.svg")
-             .content HTML CSS 
-        .project.col-lg-6: div.icondiv 
-              img.logo(src="/_nuxt/assets/images/tygo.svg") 
-              .content HTML CSS 
+            .content.flex.justify-content-between
+                .icons
+                    icon(name="bxl:html5"  style="color:white" class="ms-2 fs-3")
+                    icon(name="bxl:css3" style="color:white" class="ms-2 fs-3")
+                    icon(name="bxl:typescript" style="color:white" class="ms-2 fs-3")
+                .buttons.flex
+                    button.mybuttonlink: a(href="https://menna-elgallad.github.io/cart-system/"  target="_blank") code   
+                    button.mybuttonlink: a(href="https://github.com/Menna-elgallad/cart-system" target="_blank") Live
+             
+          div.mt-2.project1
+                img(src="/_nuxt/assets/images/land2.png" )
+                .content.flex.justify-content-between
+                  .icons
+                      icon(name="bxl:html5"  style="color:white" class="ms-2 fs-3")
+                      icon(name="bxl:css3" style="color:white" class="ms-2 fs-3")
+                      icon(name="bxl:bootstrap" style="color:white" class="ms-2 fs-3")
+                  .buttons
+                    button.mybuttonlink: a(href="https://github.com/Menna-elgallad/landing-page" target="_blank") code   
+                    button.mybuttonlink: a(href="https://github.com/Menna-elgallad/landing-page/deployments/activity_log?environment=github-pages" target="blank") Live 
 
-        .project.col-lg-6: div
-               img(src="/_nuxt/assets/images/kasper.png"  )
-               .content HTML CSS 
+        .project.col-lg-8: div.icondiv.project2(style="background-color:#93afc9")
+              img.logo(src="/_nuxt/assets/images/humm.svg")
+              .content.flex.justify-content-between
+                .icons
+                    icon(name="tabler:brand-nuxt" style="color:white" class="ms-2 fs-3")
+                    icon(name="bxl:bootstrap" style="color:white" class="ms-2 fs-3")
+                    icon(name="bxl:typescript" style="color:white" class="ms-2 fs-3")
+                    icon(name="bx:bxl-sass" style="color:white" class="ms-2 fs-3")
+                .buttons
+                    button.mybuttonlink: a(href="https://github.com/Menna-elgallad/humm-cloned" target="_blank") code   
+                    button.mybuttonlink: a(href="https://humm-cloned-production.up.railway.app/" target="_blank") Live 
+
+         
+        .project.col-lg-6: div.icondiv.project1 
+              img.logo(src="/_nuxt/assets/images/tygo.svg") 
+   
+              .content.flex.justify-content-between
+                .icons
+                      icon(name="bxl:html5"  style="color:white" class="ms-2 fs-3")
+                      icon(name="bx:bxl-sass" style="color:white" class="ms-2 fs-3")
+                      icon(name="bxl:bootstrap" style="color:white" class="ms-2 fs-3")
+                      icon(name="bxl:javascript" style="color:white" class="ms-2 fs-3")
+                .buttons
+                    button.mybuttonlink: a(href="https://github.com/Menna-elgallad/Tygoapp" target="_blank") code   
+                    button.mybuttonlink: a(href="https://menna-elgallad.github.io/Tygoapp/" target="_blank") Live 
+
+        .project.col-lg-6: div.project2
+              img(src="/_nuxt/assets/images/kasper.png"  )
+   
+              .content.flex.justify-content-between
+                .icons
+                  icon(name="bxl:html5"  style="color:white" class="ms-2 fs-3")
+                  icon(name="bxl:css3" style="color:white" class="ms-2 fs-3")
+                  icon(name="bxl:bootstrap" style="color:white" class="ms-2 fs-3")
+                .buttons
+                    button.mybuttonlink: a(href="https://github.com/Menna-elgallad/kasper-landingpage" target="_blank") code   
+                    button.mybuttonlink: a(href="https://menna-elgallad.github.io/kasper-landingpage/" target="_blank") Live 
+
         
 </template>
 
@@ -50,6 +94,35 @@ const onSlideChange = (e) => {
 if (process.client) {
   var titleafter2 = CSSRulePlugin.getRule(".mytitle2:after");
   var titlebefore2 = CSSRulePlugin.getRule(".mytitle2:before");
+
+  gsap.from(".project1", {
+    autoAlpha: 0,
+    duration: 1, // Animation duration in seconds
+    x: -100,
+    y: 200,
+    // Move the element from left (-100) to the original position (0)
+    // autoAlpha: 0,
+    stagger: {
+      each: 0.5,
+    },
+    scrollTrigger: {
+      trigger: ".project1",
+    },
+  });
+  gsap.from(".project2", {
+    autoAlpha: 0,
+    duration: 1, // Animation duration in seconds
+    x: 100,
+    y: 200,
+    // Move the element from left (-100) to the original position (0)
+    // autoAlpha: 0,
+    stagger: {
+      each: 0.5,
+    },
+    scrollTrigger: {
+      trigger: ".project2",
+    },
+  });
   gsap.from(".lettersTitle2", {
     autoAlpha: 0,
     duration: 1,
@@ -104,32 +177,67 @@ function hovereffect2(index) {
 .project {
   // width: fit-content;
 
-  overflow: hidden;
-
   z-index: 1000;
   position: relative;
   transition: all 0.6s ease;
   div {
-    border: 5px solid white;
     position: relative;
+
+    overflow: hidden;
+
+    button.mybuttonlink {
+      padding: 0.2rem 0.5rem;
+      border: none;
+      outline: none;
+      border-radius: 0;
+      background-color: transparent;
+      color: white;
+      position: relative;
+      &:hover {
+        &::after {
+          width: 100%;
+        }
+      }
+      &::after {
+        content: "";
+        width: 0%;
+        height: 1px;
+        background-color: white;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        transition: all 0.7s ease;
+      }
+    }
+
     .content {
+      display: flex;
+      flex-wrap: wrap;
       width: 100%;
-      background-color: white;
+      background-color: rgba(44, 44, 44, 0.425);
       position: absolute;
       bottom: 0;
       color: black;
       border-radius: 0;
       padding: 1rem;
+      transform: translateY(150px);
+      transition: all 1s ease;
+
+      .labeltech {
+        border-radius: 1.2rem;
+        padding: 0.3rem 1rem;
+        margin: 0.2rem 0.5rem;
+        background-color: #ccc;
+      }
     }
     &:hover {
-      button {
-        display: block;
-        width: 100px;
-        height: 100px;
-      }
       img {
         transform: scale(1.2);
         opacity: 50%;
+      }
+
+      .content {
+        transform: translateY(0);
       }
     }
     &.icondiv {
@@ -140,29 +248,12 @@ function hovereffect2(index) {
       height: 100%;
       background-color: white;
     }
-    overflow: hidden;
-    border-radius: 1.2rem;
+
     img {
       width: 100%;
       transition: all 0.5s ease;
       &.logo {
         width: 50% !important;
-      }
-
-      button {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        border: none;
-        padding: 1.5rem;
-
-        border-radius: 50%;
-
-        background-color: rgb(153 237 195);
-        // font-weight: 600;
-        color: white;
-        display: none;
       }
     }
   }
