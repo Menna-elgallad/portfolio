@@ -79,6 +79,15 @@ if (process.client) {
       trigger: ".mytitle3",
     },
   });
+  gsap.from(".mycol", {
+    autoAlpha: 0,
+    scale: 0.5,
+    delay: 0.5,
+    duration: 1,
+    scrollTrigger: {
+      trigger: ".mycol",
+    },
+  });
 }
 const hovering = ref(false);
 const hovering2 = ref(false);
@@ -140,7 +149,7 @@ h2.hover {
   }
 }
 .mycol {
-  border: 1px solid white;
+  // border: 1px solid white;
   padding: 2rem 3rem;
   .content {
     p {

@@ -7,29 +7,29 @@
     .aboutme.p-4.mt-3
       p.subheading Hi , My name is Menna Elgalld a iam a #[span.maincolor CS student and front end web developers ], My Passion is about crafting beautiful and intuitive user experiences that delight users and exceed expectations.#[br] I pays meticulous attention to detail and takes pride in producing #[span.maincolor clean, efficient, and maintainable code.] #[br]  Also enjoys collaborating with designers, UX specialists, and other stakeholders to bring their visions to life. I am always learning and exploring new tools, frameworks, and techniques to stay ahead of the curve and deliver exceptional results.#[br]  #[span.maincolor My ultimate goal ]is to create websites that not only look great, but also perform flawlessly across all devices and platforms.
     .row.mt-3
-        .col-lg-2.col-md-4.col-sm-6
+        .col-xl-2.col-md-4.col-sm-6.col-lg-3
             card(logo="vscode-icons:file-type-html" descriprion="HTML5"):  div(class="bar learning el100" data-skill="100%")
-        .col-lg-2.col-md-4.col-sm-6
+        .col-xl-2.col-md-4.col-sm-6.col-lg-3
             card(logo="vscode-icons:file-type-css" descriprion="CSS3"): div(class="bar learning el100" data-skill="100%")
-        .col-lg-2.col-md-4.col-sm-6
+        .col-xl-2.col-md-4.col-sm-6.col-lg-3
             card(logo="vscode-icons:file-type-sass" descriprion="SASS"): div(class="bar learning el90" data-skill="90%")
-        .col-lg-2.col-md-4.col-sm-6
+        .col-xl-2.col-md-4.col-sm-6.col-lg-3
             card(logo="vscode-icons:file-type-vue" descriprion="VUE3"): div(class="bar learning el90" data-skill="90%")
-        .col-lg-2.col-md-4.col-sm-6
+        .col-xl-2.col-md-4.col-sm-6.col-lg-3
             card(logo="vscode-icons:file-type-nuxt" descriprion="NUXT3"): div(class="bar learning el90" data-skill="90%")
-        .col-lg-2.col-md-4.col-sm-6
+        .col-xl-2.col-md-4.col-sm-6.col-lg-3
             card(logo="vscode-icons:file-type-pug" descriprion="PUG"): div(class="bar learning el100" data-skill="100%")
-        .col-lg-2.col-md-4.col-sm-6
+        .col-xl-2.col-md-4.col-sm-6.col-lg-3
             card(logo="vscode-icons:file-type-js-official" descriprion="JAVASCRIPT"): div(class="bar learning el90" data-skill="90%")
-        .col-lg-2.col-md-4.col-sm-6
+        .col-xl-2.col-md-4.col-sm-6.col-lg-3
             card(logo="vscode-icons:file-type-typescript-official" descriprion="TYPESCRIPT"): div(class="bar learning el80" data-skill="80%")
-        .col-lg-2.col-md-4.col-sm-6
+        .col-xl-2.col-md-4.col-sm-6.col-lg-3
             card(logo="vscode-icons:file-type-git" descriprion="Git"): div(class="bar learning el80" data-skill="80%")
-        .col-lg-2.col-md-4.col-sm-6
+        .col-xl-2.col-md-4.col-sm-6.col-lg-3
             card(logo="logos:bootstrap" descriprion="Bootstrap"): div(class="bar learning el80" data-skill="80%")
-        .col-lg-2.col-md-4.col-sm-6
+        .col-xl-2.col-md-4.col-sm-6.col-lg-3
             card(logo="vscode-icons:file-type-graphql-config" descriprion="Graphql"): div(class="bar learning el90" data-skill="90%")    
-        .col-lg-2.col-md-4.col-sm-6
+        .col-xl-2.col-md-4.col-sm-6.col-lg-3
             card(logo="logos:adobe-xd" descriprion="XD"): div(class="bar learning el80" data-skill="80%")
   
   
@@ -103,7 +103,7 @@ if (process.client) {
     },
   });
 
-  gsap.from(`.col-lg-2`, {
+  gsap.from(`.col-lg-3`, {
     autoAlpha: 0,
     duration: 1,
     scale: 0.5,
@@ -113,7 +113,7 @@ if (process.client) {
     },
 
     scrollTrigger: {
-      trigger: ".col-lg-2",
+      trigger: ".col-lg-3",
       // toggleActions: "restart reset restart complete",
       markers: false,
       // end: "700px top",
@@ -129,7 +129,7 @@ if (process.client) {
       each: 0.1,
     },
     scrollTrigger: {
-      trigger: ".el80",
+      trigger: ".col-lg-3",
     },
   });
   gsap.to(el100, {
@@ -141,7 +141,7 @@ if (process.client) {
       each: 0.1,
     },
     scrollTrigger: {
-      trigger: ".el100",
+      trigger: ".col-lg-3",
     },
   });
   gsap.to(el90, {
@@ -153,7 +153,7 @@ if (process.client) {
     },
     width: "90%",
     scrollTrigger: {
-      trigger: ".el90",
+      trigger: ".col-lg-3",
     },
   });
 }

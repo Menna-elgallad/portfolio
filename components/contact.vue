@@ -1,29 +1,25 @@
 <template lang="pug">
 .container
-  #wrapper
-    .myheading: .mytitle4
-                .d-flex
-                    h2( @mouseover="hovereffect(index)" @mouseleave="hovering=false" :class="{hover : hovering && index===hoverElement } " class="hoverable heading2 lettersTitle4 fontshape" :key="index" v-for="(letter , index) in welcoming.split('')" )  {{letter !==" "  ? letter :'&nbsp '}} 
-                p(class="subheading "  ) Hey Tell me anything u want 
+  .myheading: .mytitle4
+              .d-flex
+                  h2( @mouseover="hovereffect(index)" @mouseleave="hovering=false" :class="{hover : hovering && index===hoverElement } " class="hoverable heading2 lettersTitle4 fontshape" :key="index" v-for="(letter , index) in welcoming.split('')" )  {{letter !==" "  ? letter :'&nbsp '}} 
+              p(class="subheading "  ) Feel free to Contact me
+  form.mt-5
+    h3 Contact Form
+    .did-floating-label-content.mt-3
+      input.did-floating-input(type='text' placeholder=' ' v-model="name")
+      label.did-floating-label Name
+    .did-floating-label-content
+      input.did-floating-input(type='text' placeholder=' ' v-model="mail")
+      label.did-floating-label Email
+    .did-floating-label-content
+      input.did-floating-input(type='text' placeholder=' ' v-model="phonenum")
+      label.did-floating-label Phone Number
+    .did-floating-label-content
+      textarea.did-floating-input( placeholder=' ' rows="10" v-model="message")
+      label.did-floating-label Message  
+    mybutton(content="Send" link="#" @click="sendmail()") 
 
-    section#content
-      .form-area
-        form(role='form')
-          
-          .form-group
-            input#name(type='name'   v-model="name")
-            label(for='name') Your Name
-          .form-group
-            input#email(type='email' v-model="mail")
-            label(for='email') Email Address
-          .form-group
-            input#mobile(type='tel'   v-model="phonenum")
-            label(for='mobile') Your Phone Number
-          .form-group.message
-            textarea#message( spellcheck='true' rows='10' cols='50' tabindex='4'  v-model="message")
-            label(for='message') Subject
-          .d-flex.justify-content-center
-                mybutton(content="Send" link="#" @click="sendmail()") 
     
 </template>
 <script setup>
@@ -149,130 +145,101 @@ async function sendmail() {
     opacity: 0;
   }
 }
+
 form {
-  margin: 0 auto;
-}
-
-form > div {
-  clear: both;
-  margin: 0 0 1em;
-  overflow: hidden;
-  padding: 1px;
-}
-
-area,
-input,
-textarea,
-input[type="text"],
-input[type="email"],
-input[type="url"],
-input[type="password"],
-input[type="tel"],
-input[type="name"] {
-  box-sizing: border-box;
-  background-color: transparent;
-  font-size: 1em;
-  margin: 0 0 1.5em;
-  outline: none;
-  padding: 1em;
-  position: relative;
-  transition: all 0.15s ease;
-  width: 100%;
-}
-
-area:hover,
-input:hover,
-textarea:hover,
-input[type="text"]:hover,
-input[type="email"]:hover,
-input[type="url"],
-input[type="password"],
-input[type="tel"]:hover,
-input[type="name"]:hover,
-area:active,
-input:active,
-textarea:active,
-input[type="text"]:active,
-input[type="email"]:active,
-input[type="url"],
-input[type="password"],
-input[type="tel"]:active,
-input[type="name"]:active,
-area:focus,
-input:focus,
-textarea:focus,
-input[type="text"]:focus,
-input[type="email"]:focus,
-input[type="url"],
-input[type="password"],
-input[type="tel"]:focus,
-input[type="name"]:focus,
-textarea:hover,
-textarea:active,
-textarea:focus {
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2), 0 2px 3px rgba(0, 0, 0, 0.05);
-  -webkit-transition: all 0.3s ease;
-  background-color: transparent;
-
-  outline: none;
-  transition: all 0.3s ease;
-}
-
-.form-area {
-  margin: 2em auto;
-  min-width: 325px;
   width: 50%;
+  margin: auto;
+  @media screen and (max-width: 991px) {
+    width: 100%;
+  }
 }
-
-.form-group {
-  margin: 0 auto;
+.did-floating-label-content {
   position: relative;
-  padding-top: 10px;
+  margin-bottom: 20px;
 }
-
-.form-group label {
-  box-sizing: border-box;
-
-  font-size: 0.75em;
-  left: 20px;
-  top: 20px;
-  padding: 2px;
-  padding-bottom: 0;
-  pointer-events: none;
+.did-floating-label {
+  // color: #ccc;
+  font-size: 13px;
+  font-weight: normal;
   position: absolute;
-  text-transform: uppercase;
+  pointer-events: none;
+  left: 15px;
+  top: 11px;
+  padding: 0 5px;
 
-  transition: transform 100ms ease;
-  z-index: 200;
+  transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -webkit-transition: 0.2s ease all;
 }
-
-input,
-textarea {
-  font-size: 1em;
+.did-floating-input,
+.did-floating-select {
+  font-size: 12px;
+  display: block;
+  width: 100%;
+  padding: 1rem 2rem;
+  color: #ffffff;
+  border-radius: 4px;
+  box-sizing: border-box;
+  background-color: transparent;
+  border-color: transparent;
+  box-shadow: 0 0 5px -1px #7e7e7e2b;
+  border: 0.5px solid #ccc3;
   outline: none;
-  padding: 10px;
-  position: relative;
-  background-color: transparent !important;
-  border: 1px solid #cccccc41;
-  color: white;
+  &:focus {
+    outline: none;
+    ~ .did-floating-label {
+      top: -18px;
+      font-size: 13px;
+    }
+  }
 }
 
-input:invalid + label,
-textarea:invalid + label {
-  -moz-transform: translateY(0);
-  -ms-transform: translateY(0);
-  -o-transform: translateY(0);
-  -webkit-transform: translateY(0);
-  transform: translateY(0);
+select.did-floating-select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+select.did-floating-select::-ms-expand {
+  display: none;
 }
 
-input:focus + label,
-textarea:focus + label {
-  -moz-transform: translateY(-22px);
-  -ms-transform: translateY(-22px);
-  -o-transform: translateY(-22px);
-  -webkit-transform: translateY(-22px);
+.did-floating-input:not(:placeholder-shown) ~ .did-floating-label {
+  top: -18px;
+  font-size: 13px;
+}
+.did-floating-select:not([value=""]):valid ~ .did-floating-label {
+  top: -18px;
+  font-size: 13px;
+}
+.did-floating-select[value=""]:focus ~ .did-floating-label {
+  top: 11px;
+  font-size: 13px;
+}
 
-  transform: translateY(-22px);
+.input-group {
+  display: flex;
+  .did-floating-input {
+    border-radius: 0 4px 4px 0;
+    border-left: 0;
+    padding-left: 0;
+  }
+}
+.input-group-append {
+  display: flex;
+  align-items: center;
+  /*   margin-left:-1px; */
+}
+.input-group-text {
+  display: flex;
+  align-items: center;
+  font-weight: 400;
+  height: 34px;
+  color: #323840;
+  padding: 0 5px 0 20px;
+  font-size: 12px;
+  text-align: center;
+  white-space: nowrap;
+  border-radius: 4px 0 0 4px;
+  border-right: none;
 }
 </style>

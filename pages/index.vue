@@ -47,6 +47,9 @@ if (process.client) {
     scrollTrigger: {
       trigger: "#exper",
       toggleActions: "restart reset restart reset ",
+      markers: true,
+      start: "20px bottom",
+      end: "bottom-=100 top",
     },
   });
   gsap.from("#contact", {
@@ -124,7 +127,7 @@ h2.hover {
   // transform: scale(1.5, 1.8);
 }
 p {
-  letter-spacing: 0.3rem;
+  letter-spacing: 0.1rem;
   color: #d1d1d1;
   font-weight: 300;
 }
@@ -149,7 +152,7 @@ section {
   transform: translate(0, 100%);
   .chat {
     position: absolute;
-    top: -23%;
+    top: -37%;
     background-color: #99edc3;
     color: black;
     border-radius: 8px;

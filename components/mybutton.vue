@@ -8,7 +8,7 @@ NuxtLink(:href="link")
 <script  setup>
 const props = defineProps({
   link: String,
-  content: String
+  content: String, 
 });
 </script>
 

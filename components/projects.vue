@@ -247,6 +247,12 @@ function hovereffect2(index) {
       width: 100%;
       height: 100%;
       background-color: white;
+      @media screen and (max-width: 991px) {
+        height: 318px;
+      }
+      @media screen and (max-width: 767px) {
+        height: 229px;
+      }
     }
 
     img {

@@ -4,7 +4,7 @@
         //-     img(src="../assets/images/logoD.png" v-if="isdark")
         //-     img(src="../assets/images/logoL.png" v-if="!isdark")
         .links
-            nav
+            nav.hideinmobile
                 ul
                     li.ms-5: NuxtLink(to="#skills" class="hoverable") 
                         a(style="display:block"): span(style="font-size:smaller ; color:#99edc3") 001 
@@ -67,5 +67,10 @@ onBeforeMount(() => {
   overflow-y: scroll;
   scroll-snap-type: y mandatory;
   height: 100vh;
+}
+.hideinmobile {
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
 }
 </style>
