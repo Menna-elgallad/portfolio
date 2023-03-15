@@ -47,7 +47,7 @@ if (process.client) {
     scrollTrigger: {
       trigger: "#exper",
       toggleActions: "restart reset restart reset ",
-      markers: true,
+
       start: "20px bottom",
       end: "bottom-=100 top",
     },
