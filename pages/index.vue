@@ -30,8 +30,10 @@ div.container
 <script setup>
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-gsap.registerPlugin(ScrollTrigger);
+
 if (process.client) {
+  gsap.registerPlugin(ScrollTrigger);
+
   gsap.from("#skills", {
     autoAlpha: 0,
     duration: 1.5,
@@ -103,8 +105,8 @@ const hovering = ref(false);
 const hovering2 = ref(false);
 const hoverElement = ref(null);
 
-const welcoming = "Hi I'm Menna ! ";
-const welcoming1 = "I'm a front end web developer :) ";
+const welcoming = "Hi I'm Menna !";
+const welcoming1 = "I'm a front end web developer :)";
 
 function hovereffect(index) {
   hoverElement.value = index;

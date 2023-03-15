@@ -40,9 +40,10 @@
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import CSSRulePlugin from "gsap/CSSRulePlugin";
-gsap.registerPlugin(ScrollTrigger, CSSRulePlugin);
 
 if (process.client) {
+  gsap.registerPlugin(ScrollTrigger, CSSRulePlugin);
+
   var el80 = CSSRulePlugin.getRule(".el80:before");
   var el90 = CSSRulePlugin.getRule(".el90:before");
   var el100 = CSSRulePlugin.getRule(".el100:before");

@@ -23,29 +23,16 @@
     
 </template>
 <script setup>
-import { Navigation, Pagination, Scrollbar, A11y } from "swiper";
 import emailjs from "emailjs-com";
-
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import "swiper/css/scrollbar";
 
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import CSSRulePlugin from "gsap/CSSRulePlugin";
-const modules = [Navigation, Pagination, Scrollbar, A11y];
-gsap.registerPlugin(ScrollTrigger, CSSRulePlugin);
-const onSwiper = (swiper) => {
-  console.log(swiper);
-};
-const slideI = ref(0);
-const onSlideChange = (e) => {
-  console.log("slide change");
-  slideI.value = e.activeIndex;
-};
+
 emailjs.init("-0_peAvjq4WrXgwPs");
 if (process.client) {
+  gsap.registerPlugin(ScrollTrigger, CSSRulePlugin);
+
   var titleafter2 = CSSRulePlugin.getRule(".mytitle4:after");
   var titlebefore2 = CSSRulePlugin.getRule(".mytitle4:before");
 

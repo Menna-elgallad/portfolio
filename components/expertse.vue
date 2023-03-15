@@ -42,9 +42,10 @@
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import CSSRulePlugin from "gsap/CSSRulePlugin";
-gsap.registerPlugin(ScrollTrigger, CSSRulePlugin);
 
 if (process.client) {
+  gsap.registerPlugin(ScrollTrigger, CSSRulePlugin);
+
   var titleafter = CSSRulePlugin.getRule(".mytitle3:after");
   var titlebefore = CSSRulePlugin.getRule(".mytitle3:before");
 
