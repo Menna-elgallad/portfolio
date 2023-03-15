@@ -8,7 +8,7 @@
       
         .project.col-lg-4
           div.project1
-            img(src="/_nuxt/assets/images/cart.png" )
+            img(src="@/assets/images/cart.png" )
             .content.flex.justify-content-between
                 .icons
                     icon(name="bxl:html5"  style="color:white" class="ms-2 fs-3")
@@ -19,7 +19,7 @@
                     button.mybuttonlink: a(href="https://github.com/Menna-elgallad/cart-system" target="_blank") Live
              
           div.mt-2.project1
-                img(src="/_nuxt/assets/images/land2.png" )
+                img(src="@/assets/images/land2.png" )
                 .content.flex.justify-content-between
                   .icons
                       icon(name="bxl:html5"  style="color:white" class="ms-2 fs-3")
@@ -30,7 +30,7 @@
                     button.mybuttonlink: a(href="https://github.com/Menna-elgallad/landing-page/deployments/activity_log?environment=github-pages" target="blank") Live 
 
         .project.col-lg-8: div.icondiv.project2(style="background-color:#93afc9")
-              img.logo(src="/_nuxt/assets/images/humm.svg")
+              img.logo(src="@/assets/images/humm.svg")
               .content.flex.justify-content-between
                 .icons
                     icon(name="tabler:brand-nuxt" style="color:white" class="ms-2 fs-3")
@@ -43,7 +43,7 @@
 
          
         .project.col-lg-6: div.icondiv.project1 
-              img.logo(src="/_nuxt/assets/images/tygo.svg") 
+              img.logo(src="@/assets/images/tygo.svg") 
    
               .content.flex.justify-content-between
                 .icons
@@ -56,7 +56,7 @@
                     button.mybuttonlink: a(href="https://menna-elgallad.github.io/Tygoapp/" target="_blank") Live 
 
         .project.col-lg-6: div.project2
-              img(src="/_nuxt/assets/images/kasper.png"  )
+              img(src="@/assets/images/kasper.png"  )
    
               .content.flex.justify-content-between
                 .icons
