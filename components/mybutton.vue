@@ -5,10 +5,13 @@ NuxtLink(:href="link")
         span {{content}}
 </template>
 
-<script  setup>
+<script setup>
 const props = defineProps({
-  link: String,
-  content: String, 
+  link: {
+    type: String,
+    required: false,
+  },
+  content: String,
 });
 </script>
 

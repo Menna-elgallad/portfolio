@@ -11,6 +11,8 @@ div.container
           p( @mouseover="hovereffect2(index)" @mouseleave="hovering2=false" :class="{hover : hovering2 && index===hoverElement}" class="hoverable letters subtitle" :key="index" v-for="(letter , index) in welcoming1.split('')") {{letter !==" "  ? letter :'&nbsp '}}
           .chat Hover on me !!
         Mybutton(link="#skills" content="Explore my Portofolio")
+
+
       .brands 
           a(href="https://www.facebook.com/profile.php?id=100007285412802" type="facebook" ).myicon: Icon(name="fa-brands:facebook-f" class="icon")
           a(href="https://twitter.com/Mennaa_elgallad"  type="twitter").myicon: Icon(name="fa-brands:twitter" class="icon")

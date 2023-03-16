@@ -9,16 +9,25 @@
     .did-floating-label-content.mt-3
       input.did-floating-input(type='text' placeholder=' ' v-model="name")
       label.did-floating-label Name
+      p.errormas {{"*" +" " +errorname }}
     .did-floating-label-content
       input.did-floating-input(type='text' placeholder=' ' v-model="mail")
       label.did-floating-label Email
+      p.errormas {{"*"+" " +errormail }}
     .did-floating-label-content
       input.did-floating-input(type='text' placeholder=' ' v-model="phonenum")
       label.did-floating-label Phone Number
+    
     .did-floating-label-content
       textarea.did-floating-input( placeholder=' ' rows="10" v-model="message")
       label.did-floating-label Message  
-    mybutton(content="Send" link="#" @click="sendmail()") 
+      p.errormas {{"*"+" " + errormessage }}
+    mybutton(content="Send"  @click="sendmail()") 
+    .popup_succied(ref="eleme")
+        lord-icon( src="https://cdn.lordicon.com/lupuorrc.json" trigger="loop" colors="primary:#0000,secondary:#08a88a" style="width: 206px ; height: 140px" class="congrats"  )  
+        .text-congrates.text-center
+            h4 Thank you for contact me 
+            p I hope we will get in touch as soon as possible
 
     
 </template>
@@ -30,6 +39,10 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import CSSRulePlugin from "gsap/CSSRulePlugin";
 
 emailjs.init("-0_peAvjq4WrXgwPs");
+// onMounted(() => {
+//   gsap.set("popup_succied", { opacity: 1 });
+// });
+
 if (process.client) {
   gsap.registerPlugin(ScrollTrigger, CSSRulePlugin);
 
@@ -68,10 +81,12 @@ if (process.client) {
     },
   });
 }
+const eleme = ref(null);
+
 const hovering = ref(false);
 const hovering2 = ref(false);
 const hoverElement = ref(null);
-
+const displayicon = ref(false);
 const welcoming = "Contact Me !  ";
 
 function hovereffect(index) {
@@ -83,11 +98,34 @@ function hovereffect2(index) {
   hovering2.value = true;
 }
 const mail = ref("");
+const errormail = ref("");
+const errorname = ref("");
 const name = ref("");
 const message = ref("");
+const errormessage = ref("");
 const phonenum = ref("");
+const errorphone = ref("");
 
 async function sendmail() {
+  if (!mail.value || !message.value || !name.value) {
+    if (!mail.value) {
+      errormail.value = "Please enter your email";
+    }
+    if (!message.value) {
+      errorname.value = "Please enter your name";
+    }
+    if (!name.value) {
+      errormessage.value = "Please enter the message";
+    }
+    return;
+  }
+  eleme.value.style.opacity = 1;
+
+  gsap.from(".popup_succied", {
+    autoAlpha: 0,
+    scale: 0.2,
+    duration: 1,
+  });
   const templateParams = {
     to_email: "mennaelgallad2001@gmai.com",
     from_email: mail.value,
@@ -100,6 +138,20 @@ async function sendmail() {
     "template_oh57hrm",
     templateParams
   );
+  console.log(response.text);
+  if (response.text === "OK") {
+    errormail.value = errormessage.value = errorname.value = "";
+    mail.value = "";
+    name.value = "";
+    phonenum.value = "";
+    message.value = "";
+    gsap.to(".popup_succied", {
+      opacity: 0,
+      duration: 1,
+      delay: 2,
+    });
+  }
+
   return response;
 }
 </script>
@@ -134,6 +186,7 @@ async function sendmail() {
 }
 
 form {
+  position: relative;
   width: 50%;
   margin: auto;
   @media screen and (max-width: 991px) {
@@ -163,8 +216,8 @@ form {
   font-size: 12px;
   display: block;
   width: 100%;
-  padding: 1rem 2rem;
-  color: #ffffff;
+  padding: 0 2rem;
+
   border-radius: 4px;
   box-sizing: border-box;
   background-color: transparent;
@@ -203,14 +256,10 @@ select.did-floating-select::-ms-expand {
   font-size: 13px;
 }
 
-.input-group {
-  display: flex;
-  .did-floating-input {
-    border-radius: 0 4px 4px 0;
-    border-left: 0;
-    padding-left: 0;
-  }
+input {
+  height: 55px;
 }
+
 .input-group-append {
   display: flex;
   align-items: center;
@@ -228,5 +277,26 @@ select.did-floating-select::-ms-expand {
   white-space: nowrap;
   border-radius: 4px 0 0 4px;
   border-right: none;
+}
+.popup_succied {
+  visibility: hidden;
+  position: absolute;
+  top: 13%;
+  right: 26%;
+  background-color: rgba(158, 158, 158, 0.205);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 1.2rem;
+  border-radius: 1.2rem;
+}
+.text-congrates {
+  h4 {
+    color: $main-color;
+  }
+}
+.errormas {
+  color: #e99999;
 }
 </style>

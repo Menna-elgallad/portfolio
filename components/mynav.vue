@@ -13,10 +13,10 @@
                     li.ms-5: NuxtLink(to="#projects" class="hoverable") 
                         a(style="display:block"): span(style="font-size:smaller ; color:#99edc3") 010 
                         span &lt;Projects/&gt;
-                    li.ms-5: NuxtLink(to="#MyExpertise" class="hoverable")
+                    li.ms-5: NuxtLink(to="#exper" class="hoverable")
                         a(style="display:block"): span(style="font-size:smaller ; color:#99edc3") 011 
                         span &lt;Experience/&gt;
-                    li.ms-5: NuxtLink(to="#" class="hoverable") 
+                    li.ms-5: NuxtLink(to="#contact" class="hoverable") 
                         a(style="display:block" ): span(style="font-size:smaller ; color:#99edc3") 100
                         span &lt;Contact/&gt;
         .dark 

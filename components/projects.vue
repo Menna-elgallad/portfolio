@@ -175,7 +175,9 @@ function hovereffect2(index) {
       outline: none;
       border-radius: 0;
       background-color: transparent;
-      color: white;
+      a {
+        color: white;
+      }
       position: relative;
       &:hover {
         &::after {

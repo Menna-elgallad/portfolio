@@ -2,7 +2,8 @@
 export default defineNuxtConfig({
     app: {
         head: {
-          link: [{ rel: 'stylesheet',  type:'text/css', href: 'https://fonts.googleapis.com/css?family=Lato:300,400,700'}] , 
+          link: [{ rel: 'stylesheet',  type:'text/css', href: 'https://fonts.googleapis.com/css?family=Lato:300,400,700'}] ,
+          script :[ {src:"https://cdn.lordicon.com/ritcuqlt.js"}] ,  
           
         }
         
