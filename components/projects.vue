@@ -15,8 +15,8 @@
                     icon(name="bxl:css3" style="color:white" class="ms-2 fs-3")
                     icon(name="bxl:typescript" style="color:white" class="ms-2 fs-3")
                 .buttons.flex
-                    button.mybuttonlink: a(href="https://menna-elgallad.github.io/cart-system/"  target="_blank") code   
-                    button.mybuttonlink: a(href="https://github.com/Menna-elgallad/cart-system" target="_blank") Live
+                    button.mybuttonlink: a(href="https://github.com/Menna-elgallad/cart-system" target="_blank") code   
+                    button.mybuttonlink: a(href="https://menna-elgallad.github.io/cart-system/"  target="_blank") Live
              
           div.mt-2.project1
                 img(src="@/assets/images/land2.png" )
@@ -115,7 +115,7 @@ if (process.client) {
     y: -100,
     ease: "bounce.out",
     stagger: {
-      each: 0.04,
+      each: 0.1,
     },
     scrollTrigger: {
       trigger: ".lettersTitle2",

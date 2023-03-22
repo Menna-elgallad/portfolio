@@ -5,7 +5,7 @@
               h2( @mouseover="hovereffect(index)" @mouseleave="hovering=false" :class="{hover : hovering && index===hoverElement } " class="hoverable lettersTitle fontshape heading2" :key="index" v-for="(letter , index) in welcoming.split('')" )  {{letter !==" "  ? letter :'&nbsp '}} 
           p(class="subheading ") ِAnd The skills, tools and technologies I use to bring your products to life 
     .aboutme.p-4.mt-3
-      p.subheading Hi , My name is Menna Elgalld a iam a #[span.maincolor CS student and front end web developers ], My Passion is about crafting beautiful and intuitive user experiences that delight users and exceed expectations.#[br] I pays meticulous attention to detail and takes pride in producing #[span.maincolor clean, efficient, and maintainable code.] #[br]  Also enjoys collaborating with designers, UX specialists, and other stakeholders to bring their visions to life. I am always learning and exploring new tools, frameworks, and techniques to stay ahead of the curve and deliver exceptional results.#[br]  #[span.maincolor My ultimate goal ]is to create websites that not only look great, but also perform flawlessly across all devices and platforms.
+      p.subheading Hi , My name is Menna Elgalld و iam a #[span.maincolor CS student and front end web developers ], My Passion is about crafting beautiful and intuitive user experiences that delight users and exceed expectations.#[br] I pay meticulous attention to detail and take pride in producing #[span.maincolor clean, efficient, and maintainable code.] #[br]  Also enjoy collaborating with designers, UX specialists, and other stakeholders to bring their visions to life. I am always learning and exploring new tools, frameworks, and techniques to stay ahead of the curve and deliver exceptional results.#[br]  #[span.maincolor My ultimate goal ]is to create websites that not only look great, but also perform flawlessly across all devices and platforms.
     .row.mt-3
         .col-xl-2.col-md-4.col-sm-6.col-lg-3
             card(logo="vscode-icons:file-type-html" descriprion="HTML5"):  div(class="bar learning el100" data-skill="100%")
@@ -57,7 +57,7 @@ if (process.client) {
     y: -100,
     ease: "bounce.out",
     stagger: {
-      each: 0.04,
+      each: 0.1,
     },
     scrollTrigger: {
       trigger: ".lettersTitle",

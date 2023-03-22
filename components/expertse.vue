@@ -55,7 +55,7 @@ if (process.client) {
     y: -100,
     ease: "bounce.out",
     stagger: {
-      each: 0.04,
+      each: 0.1,
     },
     scrollTrigger: {
       trigger: ".lettersTitle3",

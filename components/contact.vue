@@ -9,11 +9,11 @@
     .did-floating-label-content.mt-3
       input.did-floating-input(type='text' placeholder=' ' v-model="name")
       label.did-floating-label Name
-      p.errormas {{"*" +" " +errorname }}
+      p.errormas {{errorname ? "*" +" " +errorname : "" }}
     .did-floating-label-content
       input.did-floating-input(type='text' placeholder=' ' v-model="mail")
       label.did-floating-label Email
-      p.errormas {{"*"+" " +errormail }}
+      p.errormas {{errormail ? "*"+" " +errormail : "" }}
     .did-floating-label-content
       input.did-floating-input(type='text' placeholder=' ' v-model="phonenum")
       label.did-floating-label Phone Number
@@ -21,7 +21,7 @@
     .did-floating-label-content
       textarea.did-floating-input( placeholder=' ' rows="10" v-model="message")
       label.did-floating-label Message  
-      p.errormas {{"*"+" " + errormessage }}
+      p.errormas {{errormessage ? "*"+" " + errormessage : ""}}
     mybutton(content="Send"  @click="sendmail()") 
     .popup_succied(ref="eleme")
         lord-icon( src="https://cdn.lordicon.com/lupuorrc.json" trigger="loop" colors="primary:#0000,secondary:#08a88a" style="width: 206px ; height: 140px" class="congrats"  )  
@@ -55,7 +55,7 @@ if (process.client) {
     y: -100,
     ease: "bounce.out",
     stagger: {
-      each: 0.04,
+      each: 0.1,
     },
     scrollTrigger: {
       trigger: ".lettersTitle4",
