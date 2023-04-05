@@ -53,7 +53,7 @@ if (process.client) {
 
   gsap.from(".lettersTitle", {
     autoAlpha: 0,
-    duration: 1,
+    duration: 1.2,
     y: -100,
     ease: "bounce.out",
     stagger: {
@@ -121,42 +121,48 @@ if (process.client) {
     }
   });
 
-  // gsap.to(el80, {
-  //   // autoAlpha: 0,
-  //   duration: 1,
-  //   delay: 1,
-  //   width: "80%",
-  //   stagger: {
-  //     each: 0.1
-  //   },
-  //   scrollTrigger: {
-  //     trigger: ".el80"
-  //   }
-  // });
-  // gsap.to(el100, {
-  //   // autoAlpha: 0,
-  //   duration: 1,
-  //   width: "100%",
-  //   delay: 1,
-  //   stagger: {
-  //     each: 0.1
-  //   },
-  //   scrollTrigger: {
-  //     trigger: ".el100"
-  //   }
-  // });
-  // gsap.to(el90, {
-  //   // autoAlpha: 0,
-  //   duration: 1,
-  //   delay: 1,
-  //   stagger: {
-  //     each: 0.1
-  //   },
-  //   width: "90%",
-  //   scrollTrigger: {
-  //     trigger: ".el90"
-  //   }
-  // });
+  gsap.to(el80, {
+    // autoAlpha: 0,
+    duration: 1,
+    delay: 1,
+    cssRule: {
+      width: "80%"
+    },
+    stagger: {
+      each: 0.1
+    },
+    scrollTrigger: {
+      trigger: ".el80"
+    }
+  });
+  gsap.to(el100, {
+    // autoAlpha: 0,
+    duration: 1,
+    cssRule: {
+      width: "100%"
+    },
+    delay: 1,
+    stagger: {
+      each: 0.1
+    },
+    scrollTrigger: {
+      trigger: ".el100"
+    }
+  });
+  gsap.to(el90, {
+    // autoAlpha: 0,
+    duration: 1,
+    delay: 1,
+    stagger: {
+      each: 0.1
+    },
+    cssRule: {
+      width: "90%"
+    },
+    scrollTrigger: {
+      trigger: ".el90"
+    }
+  });
 }
 const hovering = ref(false);
 const hovering2 = ref(false);
@@ -226,7 +232,7 @@ h2.hover {
   display: inline-block;
   padding: 5px 0 5px 10px;
   border-radius: inherit;
-  width: 80%;
+  width: 0%;
 }
 .el90::before {
   content: attr(data-skill);
@@ -234,7 +240,7 @@ h2.hover {
   display: inline-block;
   padding: 5px 0 5px 10px;
   border-radius: inherit;
-  width: 90%;
+  width: 1%;
 }
 .el100::before {
   content: attr(data-skill);
@@ -242,7 +248,7 @@ h2.hover {
   display: inline-block;
   padding: 5px 0 5px 10px;
   border-radius: inherit;
-  width: 100%;
+  width: 2%;
 }
 // .bar.learning::before {
 //   width: calc(20% - 10px);
