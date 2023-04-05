@@ -51,11 +51,11 @@ if (process.client) {
 
   gsap.from(".lettersTitle3", {
     autoAlpha: 0,
-    duration: 1,
+    duration: 0.8,
     y: -100,
     ease: "bounce.out",
     stagger: {
-      each: 0.1,
+      each: 0.04,
     },
     scrollTrigger: {
       trigger: ".lettersTitle3",

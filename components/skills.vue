@@ -121,18 +121,18 @@ if (process.client) {
     },
   });
 
-  // gsap.to(el80, {
-  //   // autoAlpha: 0,
-  //   duration: 1,
-  //   delay: 1,
-  //   width: "80%",
-  //   stagger: {
-  //     each: 0.1,
-  //   },
-  //   scrollTrigger: {
-  //     trigger: ".el80",
-  //   },
-  // });
+  gsap.to(el80, {
+    // autoAlpha: 0,
+    duration: 1,
+    delay: 1,
+    width: "80%",
+    stagger: {
+      each: 0.1,
+    },
+    scrollTrigger: {
+      trigger: ".el80",
+    },
+  });
   // gsap.to(el100, {
   //   // autoAlpha: 0,
   //   duration: 1,
@@ -226,7 +226,7 @@ h2.hover {
   display: inline-block;
   padding: 5px 0 5px 10px;
   border-radius: inherit;
-  width: 80%;
+  // width: 80%;
 }
 .el90:before {
   content: attr(data-skill);
@@ -234,7 +234,7 @@ h2.hover {
   display: inline-block;
   padding: 5px 0 5px 10px;
   border-radius: inherit;
-  width: 90%;
+  // width: 90%;
 }
 .el100:before {
   content: attr(data-skill);
@@ -242,7 +242,7 @@ h2.hover {
   display: inline-block;
   padding: 5px 0 5px 10px;
   border-radius: inherit;
-  width : 100%
+  // width : 100%
 }
 // .bar.learning::before {
 //   width: calc(20% - 10px);

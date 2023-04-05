@@ -89,11 +89,11 @@ if (process.client) {
     // Move the element from left (-100) to the original position (0)
     // autoAlpha: 0,
     stagger: {
-      each: 0.5,
+      each: 0.5
     },
     scrollTrigger: {
-      trigger: ".project1",
-    },
+      trigger: ".project1"
+    }
   });
   gsap.from(".project2", {
     autoAlpha: 0,
@@ -103,33 +103,33 @@ if (process.client) {
     // Move the element from left (-100) to the original position (0)
     // autoAlpha: 0,
     stagger: {
-      each: 0.5,
+      each: 0.5
     },
     scrollTrigger: {
-      trigger: ".project2",
-    },
+      trigger: ".project2"
+    }
   });
   gsap.from(".lettersTitle2", {
     autoAlpha: 0,
-    duration: 0.8,
+    duration: 1,
     y: -100,
     ease: "bounce.out",
     stagger: {
-      each: 0.04,
+      each: 0.04
     },
     scrollTrigger: {
       trigger: ".lettersTitle2",
       markers: false,
-      start: "100px bottom",
-    },
+      start: "100px bottom"
+    }
   });
   gsap.to(titlebefore2, {
     opacity: 1,
     delay: 0.5,
     duration: 0.5,
     scrollTrigger: {
-      trigger: ".mytitle2",
-    },
+      trigger: ".mytitle2"
+    }
   });
 
   gsap.to(titleafter2, {
@@ -137,15 +137,15 @@ if (process.client) {
 
     duration: 0.5,
     scrollTrigger: {
-      trigger: ".mytitle2",
-    },
+      trigger: ".mytitle2"
+    }
   });
 }
 const hovering = ref(false);
 const hovering2 = ref(false);
 const hoverElement = ref(null);
 
-const welcoming = "My Projects ";
+const welcoming = "My Projects";
 
 function hovereffect(index) {
   hoverElement.value = index;
