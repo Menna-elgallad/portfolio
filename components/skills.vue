@@ -12,23 +12,23 @@
         .col-xl-2.col-md-4.col-sm-6.col-lg-3
             card(logo="vscode-icons:file-type-css" descriprion="CSS3"): div(class="bar learning el100" data-skill="100%")
         .col-xl-2.col-md-4.col-sm-6.col-lg-3
-            card(logo="vscode-icons:file-type-sass" descriprion="SASS"): div(class="bar learning el90" data-skill="90%")
+            card(logo="vscode-icons:file-type-pug" descriprion="PUG"): div(class="bar learning el100" data-skill="100%")
         .col-xl-2.col-md-4.col-sm-6.col-lg-3
             card(logo="vscode-icons:file-type-vue" descriprion="VUE3"): div(class="bar learning el90" data-skill="90%")
         .col-xl-2.col-md-4.col-sm-6.col-lg-3
             card(logo="vscode-icons:file-type-nuxt" descriprion="NUXT3"): div(class="bar learning el90" data-skill="90%")
         .col-xl-2.col-md-4.col-sm-6.col-lg-3
-            card(logo="vscode-icons:file-type-pug" descriprion="PUG"): div(class="bar learning el100" data-skill="100%")
+            card(logo="vscode-icons:file-type-sass" descriprion="SASS"): div(class="bar learning el90" data-skill="90%")
         .col-xl-2.col-md-4.col-sm-6.col-lg-3
             card(logo="vscode-icons:file-type-js-official" descriprion="JAVASCRIPT"): div(class="bar learning el90" data-skill="90%")
         .col-xl-2.col-md-4.col-sm-6.col-lg-3
-            card(logo="vscode-icons:file-type-typescript-official" descriprion="TYPESCRIPT"): div(class="bar learning el80" data-skill="80%")
+            card(logo="vscode-icons:file-type-graphql-config" descriprion="Graphql"): div(class="bar learning el90" data-skill="90%")    
         .col-xl-2.col-md-4.col-sm-6.col-lg-3
             card(logo="vscode-icons:file-type-git" descriprion="Git"): div(class="bar learning el80" data-skill="80%")
         .col-xl-2.col-md-4.col-sm-6.col-lg-3
             card(logo="logos:bootstrap" descriprion="Bootstrap"): div(class="bar learning el80" data-skill="80%")
         .col-xl-2.col-md-4.col-sm-6.col-lg-3
-            card(logo="vscode-icons:file-type-graphql-config" descriprion="Graphql"): div(class="bar learning el90" data-skill="90%")    
+            card(logo="vscode-icons:file-type-typescript-official" descriprion="TYPESCRIPT"): div(class="bar learning el80" data-skill="80%")
         .col-xl-2.col-md-4.col-sm-6.col-lg-3
             card(logo="logos:adobe-xd" descriprion="XD"): div(class="bar learning el80" data-skill="80%")
   
@@ -44,26 +44,26 @@ import CSSRulePlugin from "gsap/CSSRulePlugin";
 if (process.client) {
   gsap.registerPlugin(ScrollTrigger, CSSRulePlugin);
 
-  var el80 = CSSRulePlugin.getRule(".el80:before");
-  var el90 = CSSRulePlugin.getRule(".el90:before");
-  var el100 = CSSRulePlugin.getRule(".el100:before");
+  var el80 = CSSRulePlugin.getRule(".el80::before");
+  var el90 = CSSRulePlugin.getRule(".el90::before");
+  var el100 = CSSRulePlugin.getRule(".el100::before");
   var titleafter = CSSRulePlugin.getRule(".mytitle:after");
   var titlebefore = CSSRulePlugin.getRule(".mytitle:before");
   var maincolor = CSSRulePlugin.getRule(".maincolor:before");
 
   gsap.from(".lettersTitle", {
     autoAlpha: 0,
-    duration: 0.8,
+    duration: 1,
     y: -100,
     ease: "bounce.out",
     stagger: {
-      each: 0.04,
+      each: 0.04
     },
     scrollTrigger: {
       trigger: ".lettersTitle",
       markers: false,
-      start: "100px bottom",
-    },
+      start: "100px bottom"
+    }
   });
   gsap.to(titlebefore, {
     // width: "30%",
@@ -71,24 +71,24 @@ if (process.client) {
     delay: 0.5,
     duration: 0.5,
     scrollTrigger: {
-      trigger: ".mytitle",
-    },
+      trigger: ".mytitle"
+    }
   });
   gsap.to(titleafter, {
     width: "30%",
     // autoAlpha: 0,
     duration: 0.5,
     scrollTrigger: {
-      trigger: ".mytitle",
-    },
+      trigger: ".mytitle"
+    }
   });
   gsap.from(".subtitle", {
     autoAlpha: 0,
     // autoAlpha: 0,
     duration: 0.5,
     scrollTrigger: {
-      trigger: ".subtitle",
-    },
+      trigger: ".subtitle"
+    }
   });
   gsap.to(maincolor, {
     width: "calc(100% + 4px)",
@@ -96,12 +96,12 @@ if (process.client) {
 
     duration: 1,
     stagger: {
-      each: 0.33,
+      each: 0.33
     },
 
     scrollTrigger: {
-      trigger: ".maincolor",
-    },
+      trigger: ".maincolor"
+    }
   });
 
   gsap.from(`.col-lg-3`, {
@@ -110,15 +110,15 @@ if (process.client) {
     scale: 0.5,
     delay: 0.5,
     stagger: {
-      each: 0.05,
+      each: 0.05
     },
 
     scrollTrigger: {
       trigger: ".col-lg-3",
       // toggleActions: "restart reset restart complete",
-      markers: false,
+      markers: false
       // end: "700px top",
-    },
+    }
   });
 
   gsap.to(el80, {
@@ -127,36 +127,36 @@ if (process.client) {
     delay: 1,
     width: "80%",
     stagger: {
-      each: 0.1,
+      each: 0.1
     },
     scrollTrigger: {
-      trigger: ".el80",
-    },
+      trigger: ".el80"
+    }
   });
-  // gsap.to(el100, {
-  //   // autoAlpha: 0,
-  //   duration: 1,
-  //   width: "100%",
-  //   delay: 1,
-  //   stagger: {
-  //     each: 0.1,
-  //   },
-  //   scrollTrigger: {
-  //     trigger: ".el100",
-  //   },
-  // });
-  // gsap.to(el90, {
-  //   // autoAlpha: 0,
-  //   duration: 1,
-  //   delay: 1,
-  //   stagger: {
-  //     each: 0.1,
-  //   },
-  //   width: "90%",
-  //   scrollTrigger: {
-  //     trigger: ".el90",
-  //   },
-  // });
+  gsap.to(el100, {
+    // autoAlpha: 0,
+    duration: 1,
+    width: "100%",
+    delay: 1,
+    stagger: {
+      each: 0.1
+    },
+    scrollTrigger: {
+      trigger: ".el100"
+    }
+  });
+  gsap.to(el90, {
+    // autoAlpha: 0,
+    duration: 1,
+    delay: 1,
+    stagger: {
+      each: 0.1
+    },
+    width: "90%",
+    scrollTrigger: {
+      trigger: ".el90"
+    }
+  });
 }
 const hovering = ref(false);
 const hovering2 = ref(false);
@@ -220,7 +220,7 @@ h2.hover {
   }
 }
 
-.el80:before {
+.el80::before {
   content: attr(data-skill);
   background-color: #99edc3;
   display: inline-block;
@@ -228,7 +228,7 @@ h2.hover {
   border-radius: inherit;
   // width: 80%;
 }
-.el90:before {
+.el90::before {
   content: attr(data-skill);
   background-color: #99edc3;
   display: inline-block;
@@ -236,13 +236,13 @@ h2.hover {
   border-radius: inherit;
   // width: 90%;
 }
-.el100:before {
+.el100::before {
   content: attr(data-skill);
   background-color: #99edc3;
   display: inline-block;
   padding: 5px 0 5px 10px;
   border-radius: inherit;
-  // width : 100%
+  // width: 100%;
 }
 // .bar.learning::before {
 //   width: calc(20% - 10px);

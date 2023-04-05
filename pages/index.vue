@@ -42,8 +42,8 @@ if (process.client) {
     delay: 0.2,
     scrollTrigger: {
       trigger: "#skills",
-      toggleActions: "restart reset restart reset ",
-    },
+      toggleActions: "restart reset restart reset "
+    }
   });
   gsap.from("#exper", {
     autoAlpha: 0,
@@ -53,24 +53,24 @@ if (process.client) {
       toggleActions: "restart reset restart reset ",
 
       start: "20px bottom",
-      end: "bottom-=100 top",
-    },
+      end: "bottom-=100 top"
+    }
   });
   gsap.from("#contact", {
     autoAlpha: 0,
     duration: 1.5,
     scrollTrigger: {
       trigger: "#contact",
-      toggleActions: "restart reset restart reset ",
-    },
+      toggleActions: "restart reset restart reset "
+    }
   });
   gsap.from("#section1", {
     autoAlpha: 0,
     duration: 1,
     scrollTrigger: {
       trigger: "#section1",
-      toggleActions: "restart reset restart reset ",
-    },
+      toggleActions: "restart reset restart reset "
+    }
   });
   gsap.from("#projects", {
     autoAlpha: 0,
@@ -78,8 +78,8 @@ if (process.client) {
     delay: 0.2,
     scrollTrigger: {
       trigger: "#projects",
-      toggleActions: "restart reset restart reset ",
-    },
+      toggleActions: "restart reset restart reset "
+    }
   });
 
   gsap.from(".letters", {
@@ -88,11 +88,11 @@ if (process.client) {
     y: -100,
     ease: "bounce.out",
     stagger: {
-      each: 0.04,
+      each: 0.04
     },
     scrollTrigger: {
-      trigger: ".letters",
-    },
+      trigger: ".letters"
+    }
   });
 }
 // const slowScroll = () => {
